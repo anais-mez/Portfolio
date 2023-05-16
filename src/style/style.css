@@ -1,0 +1,199 @@
+:root {
+    --color-brun: #6D493B;
+    --color-mid: #C19B87;
+    --color-background: #FCF9F2;
+    --color-beige: #cfbaa2;
+    --color-skin: #d6b6a5;
+    --color-light: #e5d7d3;
+    --color-transparent: rgba(0, 0, 0, 0.001);
+    /* opacity: 0.33; */
+}
+
+@font-face {
+    font-family: 'cremona';
+    src: url(../font/Cremona-Regular.ttf);
+}
+
+@font-face {
+    font-family: "qeinsha";
+    src: url(../font/Qeinsha.ttf);
+}
+
+@font-face {
+    font-family: "nunito";
+    src: url(../font/Nunito-VariableFont_wght.ttf);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: var(--color-background);
+}
+
+header.sticky {
+    top: 0;
+    position: sticky;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-skin);
+    transition: all 0.5s ease-in-out;
+}
+
+header {
+    top: 0;
+    position: sticky;
+    width: 100%;
+    min-height: 930px;
+    background-color: var(--color-skin);
+    display: flex;
+    /* will-change: transform, top; */
+    transition: all 0.5s ease-in-out;
+}
+
+.logo {
+    margin-left: 3%;
+    /* width: 35%; */
+}
+
+/* header.sticky .logo {
+    width: 30%;
+} */
+
+.logo img {
+    width: 300px;
+    transition: all 0.7s ease-in-out;
+}
+
+header.sticky .logo img {
+    width: 120px;
+    transition: all 0.7s ease-in-out;
+} 
+
+.home-title {
+    margin: 0;
+    width: 60%;
+    justify-content: center;
+    height: 940px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items {
+    display: none;
+}
+
+header.sticky .items {
+    margin-left: 120px;
+    width: 75%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.sticky .items .menu-item {
+    color: var(--color-brun);
+    font-family: 'cremona';
+    font-weight: normal;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+header.sticky .menu-item.active {
+    color: var(--color-brun);
+    font-family: 'cremona';
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+header.sticky .home-title {
+    display: none;
+}
+
+.home-title h1 {
+    text-align: center;
+    color: var(--color-background);
+    font-family: 'cremona';
+    font-size: 120px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    line-height: 127px;
+    z-index: 1;
+}
+
+.home-title h4 {
+    color: var(--color-background);
+    font-family: 'qeinsha';
+    font-size: 28px;
+    font-weight: normal;
+    z-index: 1;
+}
+
+header.sticky .blob-1 {
+    display: none;
+}
+
+.blob-1 {
+    position: absolute;
+    right: 0;
+    top: 188px;
+    z-index: 0;
+    transition: all 0.7s ease-in-out;
+}
+
+.blob-1 img {
+    width: 500px;
+}
+
+#propos {
+    height: 150px;
+}
+
+.propos {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    /* background-color: var(--color-background); */
+    margin: 0 auto;
+}
+
+.propos .row1 img,
+.propos .row2 img {
+    width: 325px;
+    border-radius: 20px;
+}
+
+.propos p {
+    margin: 0 auto;
+    width: 55%;
+    text-align: justify;
+    color: var(--color-brun);
+    font-size: 20px;
+    font-family: 'nunito';
+}
+
+.propos .row1,
+.propos .row2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+#blob-propos-1 {
+    position: absolute;
+    z-index: -1;
+    top: 570px;
+    width: 300px;
+}
+
+#blob-propos-2 {
+    position: absolute;
+    z-index: -1;
+    top: 250px;
+    right: 0;
+    width: 300px;
+}

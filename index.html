@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="keywords"
+        content="Etudiante, Ingénieur Informatique, développement application, développement web, développement logiciel">
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Je m'appelle Anaïs Méziane, je suis étudiante en Ecole d'Ingénieur et voici mon portfolio afin de pouvoir présenter plus facilement mes compétences ainsi que mes projets.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mon portfolio</title>
+    <link rel="shortcut icon" href="" type="image/png">
+
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <meta name="theme-color" content="">
+    <meta name="og:title" content="Portfolio">
+    <meta name="og:description"
+        content="Je m'appelle Anaïs Méziane, je suis étudiante en Ecole d'Ingénieur et voici mon portfolio afin de pouvoir présenter plus facilement mes compétences ainsi que mes projets.">
+    <meta name="og:type" content="website">
+</head>
+
+<body>
+
+    <header id="header-change" class="">
+        <div class="logo">
+            <img src="./public/logo-header.png" alt="Logo header">
+        </div>
+
+        <div class="items">
+            <a href="#propos" class="menu-item active" onclick="setActive(this)">A PROPOS</a>
+            <a href="#experiences" class="menu-item" onclick="setActive(this)">EXPERIENCES</a>
+            <a href="#projets" class="menu-item"  onclick="setActive(this)">PROJETS</a>
+            <a href="#competences" class="menu-item"  onclick="setActive(this)">COMPETENCES</a>
+            <a href="#contact" class="menu-item"  onclick="setActive(this)">CONTACT</a>
+        </div>
+
+        <div class="home-title">
+            <h1>PORTFOLIO<br>MEZIANE ANAÏS</h1>
+            <h4>Etudiante Ingénieur Informatique</h4>
+        </div>
+
+        <div class="blob-1">
+            <img src="./public/blob-accueil.png" alt="Blob aesthetic">
+        </div>
+    </header>
+
+    <img id="blob-propos-1" src="./public/blob-propos-1.png" alt="Blob aesthetic">
+
+    <div id="propos"></div>
+
+    <div class="propos">
+        <div class="row1">
+            <img src="./public/photo.png" alt="Photo de moi">
+
+            <p>
+                Je me présente, Anaïs Méziane, étudiante en Cycle Ingénieur Informatique à l'Ecole d'Ingénieurs CESI.
+                Actuellement, je suis à la recherche d'une alternance de trois ans afin de poursuivre mes études dans le
+                domaine du développement informatique.
+            </p>
+        </div>
+
+        <div class="row2">
+            <p>
+                J'ai créé ce site web dans le but de me faire connaître davantage et de pouvoir détailler mes
+                compétences et projets de manière plus approfondie que sur un simple CV.
+            </p>
+
+            <img src="./public/logo.png" alt="Logo">
+        </div>
+    </div>
+
+    <img id="blob-propos-2" src="./public/blob-propos-2.png" alt="Blob aesthetic">
+
+
+    <script src="./src/script/script.js"></script>
+</body>
+
+</html>
