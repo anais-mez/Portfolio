@@ -165,6 +165,7 @@ header.sticky .blob-1 {
 .propos .row2 img {
     width: 325px;
     border-radius: 20px;
+    margin: 20px;
 }
 
 .propos p {
@@ -198,53 +199,103 @@ header.sticky .blob-1 {
     width: 300px;
 }
 
-.experiences {
+#experiences {
     margin-top: 3%;
-    width: 87%;
-    margin-left: 13%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    width: 100%;
 }
 
-.experiences h1 {
+#experiences h1 {
     font-size: 48px;
+    margin-left: 13%;
     font-family: 'qeinsha';
     font-weight: lighter;
     color: var(--color-brun);
 }
 
 .timeline {
+    padding: 100px 0px;
+}
+
+.container {
     width: 100%;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-indicators {
+    top: 50px;
+    width: 75%;
+    margin-left: 14%;
+    position: static;
+    margin-bottom: 40px;
+}
+
+.carousel-inner {
     display: flex;
-    margin-top: 45px;
+    justify-content: flex-start;
 }
 
-.swiper-content {
-    display: flex;
-    flex-direction: column;
-    text-align: end;
-    width: 70%;
+.experience-slide-one {
+    padding: 0 50px;
+    width: 90%;
 }
 
-.swiper-content span {
-    font-size: 26px;
+.carousel-indicators button {
+    text-indent: 0 !important;
+    background-color: transparent;
+    background: 0 0;
+    border: none;
+    margin: 0 !important;
+    position: relative;
+    width: 33% !important;
 }
 
-.swiper-pagination {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
+.carousel-indicators button::before {
+    position: absolute;
+    background-color: transparent;
+    content: "";
+    border-top: 1px solid #C8CBD0;
+    width: 100%;
+    left: 0;
 }
 
-.swiper-button-prev img{
+.carousel-indicators button h4 {
+    margin-top: -41px;
+    position: absolute;
+    left: 52%;
+    transform: translateX(-50%);
+}
+
+.carousel-indicators button.active h4 {
+    color: var(--color-mid);
+    background-color: transparent;
+    font-size: 32px;
+    position: absolute;
+    text-align: center;
+    margin-top: -49px;
+} 
+
+.carousel-indicators button img {
+    width: 20px;
+    margin-top: -9px;
+    position: absolute;
+}
+
+.experience-slide-text h3 {
+    margin-bottom: 30px;
+    font-size: 27px;
+    color: var(--color-brun);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 2%;
+    opacity: 0.8;
+}
+
+.carousel-control-next img,
+.carousel-control-prev img {
     width: 50px;
-    transform: rotate(270deg);
-}
-
-.swiper-button-next img {
-    width: 50px;
-    transform: rotate(90deg);
 }
