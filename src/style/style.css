@@ -46,7 +46,7 @@ header {
     top: 0;
     position: sticky;
     width: 100%;
-    min-height: 930px;
+    height: 100vh;
     background-color: var(--color-skin);
     display: flex;
     /* will-change: transform, top; */
@@ -157,7 +157,6 @@ header.sticky .blob-1 {
     display: flex;
     flex-direction: column;
     width: 55%;
-    /* background-color: var(--color-background); */
     margin: 0 auto;
 }
 
@@ -213,21 +212,27 @@ header.sticky .blob-1 {
 }
 
 .timeline {
+    width: 100%;
     padding: 100px 0px;
 }
 
 .container {
     width: 100%;
+    margin: 0;
 }
 
 .carousel {
     position: relative;
 }
 
+.carousel-item {
+    margin-top: 100px;
+    width: 100%;
+}
+
 .carousel-indicators {
     top: 50px;
     width: 75%;
-    margin-left: 14%;
     position: static;
     margin-bottom: 40px;
 }
@@ -238,8 +243,7 @@ header.sticky .blob-1 {
 }
 
 .experience-slide-one {
-    padding: 0 50px;
-    width: 90%;
+    padding: 0 150px;
 }
 
 .carousel-indicators button {
@@ -283,16 +287,42 @@ header.sticky .blob-1 {
     position: absolute;
 }
 
+.experience-slide-img img {
+    border-radius: 20px;
+    position: static;
+}
+
+.experience-slide-text {
+    padding: 20px;
+}
+
 .experience-slide-text h3 {
     margin-bottom: 30px;
-    font-size: 27px;
+    font-size: 20px;
+    color: var(--color-mid);
+    font-family: 'cremona';
+}
+
+.title-p {
+    font-size: 27px !important;
     color: var(--color-brun);
+}
+
+.experience-slide-text p {
+    font-size: 16px;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
 }
 
 .carousel-control-next,
 .carousel-control-prev {
     width: 2%;
     opacity: 0.8;
+}
+
+.carousel-control-prev {
+    margin-top: 5%;
 }
 
 .carousel-control-next img,

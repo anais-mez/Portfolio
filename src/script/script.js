@@ -4,7 +4,7 @@ document.addEventListener("scroll", function () {
         anchoredCtaWeb.style.minHeight = "70px";
         anchoredCtaWeb.classList.add("sticky");
     }
-    if (window.pageYOffset < 0) {
+    if (window.pageYOffset < 3) {
         anchoredCtaWeb.classList.remove("sticky");
     }
 });
