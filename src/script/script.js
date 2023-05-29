@@ -1,6 +1,6 @@
 document.addEventListener("scroll", function () {
     const anchoredCtaWeb = document.getElementById("header-change");
-    if (window.pageYOffset > 10) {
+    if (window.pageYOffset > 5) {
         anchoredCtaWeb.style.minHeight = "70px";
         anchoredCtaWeb.classList.add("sticky");
     }
