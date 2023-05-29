@@ -166,6 +166,14 @@ header.sticky .blob-1 {
     height: 120px;
 }
 
+#hobbies {
+    height: 80px;
+}
+
+#contact {
+    height: 120px;
+}
+
 .propos {
     display: flex;
     flex-direction: column;
@@ -270,6 +278,7 @@ header.sticky .blob-1 {
     margin: 0 !important;
     position: relative;
     width: 33% !important;
+    color: var(--color-brun);
 }
 
 .carousel-indicators button::before {
@@ -286,6 +295,10 @@ header.sticky .blob-1 {
     position: absolute;
     left: 52%;
     transform: translateX(-50%);
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--color-background) !important;
 }
 
 .carousel-indicators button.active h4 {
@@ -664,6 +677,7 @@ header.sticky .blob-1 {
     margin-bottom: 30px;
     margin-top: 10px;
 }
+
 .competences_container2 .competences-column1 h2,
 .competences_container2 .competences-column2 h2,
 .competences_container2 .competences-column3 h2 {
@@ -749,7 +763,12 @@ header.sticky .blob-1 {
     box-shadow: inset 0 1px 2px rgba(193, 155, 135, 0.4);
 }
 
-.progress-bar1 {
+.progress-bar1,
+.progress-bar2,
+.progress-bar3,
+.progress-bar4,
+.progress-bar5,
+.progress-bar6 {
     height: 13px;
     border-radius: 30px;
     background: var(--color-brun);
@@ -758,19 +777,391 @@ header.sticky .blob-1 {
 }
 
 .progress-moved .progress-bar1 {
+    width: 93%;
+    background-color: var(--color-brun);
+}
+
+.progress-moved .progress-bar2 {
+    width: 89%;
+    background-color: var(--color-brun);
+}
+
+.progress-moved .progress-bar3 {
+    width: 87%;
+    background-color: var(--color-brun);
+}
+
+.progress-moved .progress-bar4 {
+    width: 97%;
+    background-color: var(--color-brun);
+}
+
+.progress-moved .progress-bar5 {
+    width: 80%;
+    background-color: var(--color-brun);
+}
+
+.progress-moved .progress-bar6 {
     width: 75%;
     background-color: var(--color-brun);
 }
 
-.progress-bar2 {
-    height: 13px;
-    border-radius: 30px;
-    background: var(--color-brun);
-    transition: 0.4s linear;
-    transition-property: width, background-color;
+/*************HOBBIES************/
+
+.hobbies {
+    width: 100%;
 }
 
-.progress-moved .progress-bar2 {
-    width: 85%;
-    background-color: var(--color-brun);
+.hobbies h1 {
+    font-size: 48px;
+    margin-left: 13%;
+    margin-bottom: 30px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+.cards-hobbies {
+    display: flex;
+    width: 70%;
+    margin: 50px auto;
+    justify-content: space-around;
+}
+
+.read {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background-color: var(--color-mid);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.read:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-light);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.read:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.read:after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--color-beige);
+}
+
+.read .imgBx {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 150px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.read:hover .imgBx {
+    top: -10%;
+    transform: translateY(-10%);
+}
+
+.read .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.read:hover .contentBx {
+    height: 180px;
+}
+
+.read .contentBx h2 {
+    position: relative;
+    font-family: 'cremona';
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-background);
+    margin: 0;
+}
+
+.read .contentBx .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    visibility: hidden;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.read:hover .contentBx .text {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+}
+
+.sport {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background-color: var(--color-mid);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.sport:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-light);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.sport:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.sport:after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--color-beige);
+}
+
+.sport .imgBx {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 150px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.sport:hover .imgBx {
+    top: -10%;
+    transform: translateY(-10%);
+}
+
+.sport .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.sport:hover .contentBx {
+    height: 180px;
+}
+
+.sport .contentBx h2 {
+    position: relative;
+    font-family: 'cremona';
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-background);
+    margin: 0;
+    margin-top: 5px;
+}
+
+.sport .contentBx .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    visibility: hidden;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.sport:hover .contentBx .text {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+}
+
+.coding {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background-color: var(--color-mid);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.coding:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-light);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.coding:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.coding:after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--color-beige);
+}
+
+.coding .imgBx {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 150px;
+    height: auto;
+    transition: 0.5s;
+}
+
+.coding .imgBx img {
+    width: 300px;
+}
+
+.coding:hover .imgBx {
+    top: 5%;
+    transform: translateY(-10%);
+}
+
+.coding .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.coding:hover .contentBx {
+    height: 180px;
+}
+
+.coding .contentBx h2 {
+    position: relative;
+    font-family: 'cremona';
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-background);
+    margin: 0;
+    margin-top: 5px;
+}
+
+.coding .contentBx .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    visibility: hidden;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.coding:hover .contentBx .text {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+}
+
+/****************CONTACT****************/
+
+.contact {
+    width: 100%;
+    padding: 80px;
+    display: flex;
+    margin-bottom: 80px;
+}
+
+.information_contact {
+    width: 50%;
+    margin-right: 3%;
+}
+
+.information_contact h1 {
+    font-family: 'cremona';
+    font-size: 55px;
+    color: var(--color-brun);
+    margin-bottom: 20px;
+}
+
+.information_contact p {
+    font-family: 'nunito';
+    font-size: 18px;
+    text-align: justify;
+    color: var(--color-brun);
+    margin-bottom: 60px;
+}
+
+.information_contact a {
+    font-family: 'nunito';
+    font-size: 23px;
+    text-decoration: none;
+    color: var(--color-brun);
+}
+
+/* .icones {
+} */
+
+.copyright {
+    color: var(--color-brun);
+    display: flex;
+    justify-content: center;
+    font-family: 'nunito';
+    font-size: 12px;
 }
