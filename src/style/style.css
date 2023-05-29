@@ -656,7 +656,7 @@ header.sticky .blob-1 {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    height: 500px;
+    height: 550px;
 }
 
 .competences_container2 .competences-column1,
@@ -1155,8 +1155,24 @@ header.sticky .blob-1 {
     color: var(--color-brun);
 }
 
-/* .icones {
-} */
+.icones {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.icones a {
+    text-decoration: none;
+    color: var(--color-brun);
+    font-family: 'cremona';
+    font-size: 22px;
+}
+
+.linkedin,
+.cv {
+    margin-top: 40px;
+}
 
 .copyright {
     color: var(--color-brun);
