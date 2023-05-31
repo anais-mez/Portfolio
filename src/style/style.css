@@ -220,6 +220,72 @@ header.sticky .blob-1 {
     width: 300px;
 }
 
+#blob-1 {
+    width: 500px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    right: 1%;
+    top: 100%;
+    transform: rotate(180deg);
+}
+
+#blob-2 {
+    width: 500px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    left: 1%;
+    top: 180%;
+    transform: rotate(180deg);
+}
+
+#blob-3 {
+    width: 550px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    right: 19%;
+    top: 270%;
+    transform: rotate(45deg);
+}
+
+#blob-4 {
+    width: 450px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.2;
+    left: 1%;
+    top: 390%;
+}
+
+#blob-5 {
+    width: 450px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    right: 2%;
+    top: 465%;
+}
+
+#blob-6 {
+    width: 450px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    right: 2%;
+    top: 570%;
+}
+
+#blob-7 {
+    width: 750px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    right: 8%;
+    top: 660%;
+}
+
 .experiences {
     margin-top: 3%;
     width: 100%;
@@ -395,7 +461,7 @@ header.sticky .blob-1 {
     margin: 0 auto;
     transform: rotate(0deg);
     transition: transform .3s linear, margin .3s linear;
-    width: 300px;
+    width: 60%;
 }
 
 .card-1:hover img,
@@ -404,7 +470,7 @@ header.sticky .blob-1 {
     margin: -20px auto;
     transform: rotate(25deg);
     transition: transform .3s linear, margin .3s linear;
-    width: 300px;
+    width: 60%;
 }
 
 .card-1 h4,
@@ -1130,7 +1196,7 @@ header.sticky .blob-1 {
 
 .information_contact {
     width: 50%;
-    margin-right: 3%;
+    margin-left: 5%;
 }
 
 .information_contact h1 {
