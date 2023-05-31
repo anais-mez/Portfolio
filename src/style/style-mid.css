@@ -1,0 +1,274 @@
+@media screen and (max-width: 960px) {
+    header.sticky {
+        height: 60px;
+    }
+
+    .logo img {
+        width: 170px;
+    }
+
+    header.sticky .items {
+        margin-left: 10px;
+        width: 80%;
+        height: 70px;
+    }
+
+    header.sticky .items .menu-item {
+        font-size: 19px;
+    }
+
+    .blob-1 {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        z-index: 0;
+        transition: all 0.7s ease-in-out;
+    }
+
+    .blob-1 img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .propos {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .propos .row1 img,
+    .propos .row2 img {
+        width: 300px;
+        border-radius: 20px;
+        margin: 20px;
+    }
+
+    .propos p {
+        width: 75%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .experiences h1 {
+        font-size: 44px;
+        margin-bottom: 10px;
+    }
+
+    .timeline {
+        padding: 80px 0px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-indicators {
+        top: 50px;
+        width: 75%;
+        position: static;
+        margin-bottom: 40px;
+    }
+
+    .carousel-indicators button.active h4 {
+        font-size: 28px;
+    }
+
+    .experience-slide-img {
+        text-align: center;
+    }
+
+    .experience-slide-img img {
+        border-radius: 20px;
+        position: static;
+        width: 200px;
+        /* display: none; */
+    }
+
+    .experience-slide-text {
+        padding: 5px;
+    }
+
+    .experience-slide-one {
+        padding: 0 50px;
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+    .expe-sco {
+        margin: 40px auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .expe-sco h1 {
+        font-size: 44px;
+    }
+
+    .card-1,
+    .card-3 {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        margin-bottom: 5%;
+    }
+
+    .card-1 h5,
+    .card-3 h5 {
+        font-size: 12px;
+    }
+
+    .card-1 img,
+    .card-3 img,
+    .card-2 img {
+        width: 40%;
+        height: 50%;
+    }
+
+    .card-1 h4,
+    .card-3 h4 {
+        font-size: 18px;
+    }
+
+    .card-1 .title-c,
+    .card-3 .title-c {
+        font-size: 11px;
+    }
+
+    .card-1 .corp-c,
+    .card-3 .corp-c {
+        font-size: 14px;
+    }
+
+    .card-2 {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        margin-bottom: 5%;
+        opacity: 0.8;
+    }
+
+    .card-2 h5 {
+        font-size: 12px;
+    }
+
+    .card-2 h4 {
+        font-size: 18px;
+    }
+
+    .card-2 .title-c {
+        font-size: 11px;
+    }
+
+    .card-2 .corp-c {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .projets h1 {
+        font-size: 44px;
+    }
+
+    .cards-row1,
+    .cards-row2 {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .competences h1 {
+        font-size: 44px;
+    }
+    .competences .competences_container {
+        width: 98%;
+    }
+
+    .competences .competences_container2 {
+        width: 98%;
+    }
+
+    .competences_container .competences-column1,
+    .competences_container .competences-column2,
+    .competences_container .competences-column3 {
+        height: 780px;
+    }
+
+    .competences_container2 .competences-column1,
+    .competences_container2 .competences-column2,
+    .competences_container2 .competences-column3 {
+        height: 500px;
+    }
+
+    .competences_container .competences-column1 h2,
+    .competences_container .competences-column2 h2,
+    .competences_container .competences-column3 h2 {
+        font-size: 20px;
+    }
+    
+    .competences_container2 .competences-column1 h2,
+    .competences_container2 .competences-column2 h2,
+    .competences_container2 .competences-column3 h2 {
+        font-size: 20px;
+    }
+
+    .sql {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .sql label {
+        font-family: 'nunito';
+        color: var(--color-brun);
+        width: 90%;
+        margin-left: 3px;
+    }    
+}
+
+@media screen and (max-width: 960px) {
+    .hobbies h1 {
+        font-size: 44px;
+    }
+    .cards-hobbies {
+        flex-direction: column;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .sport {
+        margin: 20px auto;
+    }
+
+    .read {
+        margin: 0px auto;
+    }
+
+    .coding {
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .contact h1 {
+        font-size: 44px;
+    }
+    
+    .contact {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+
+    .information_contact {
+        width: 90%;
+        margin-bottom: 5%;
+    }
+}

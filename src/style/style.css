@@ -50,18 +50,12 @@ header {
     height: 100vh;
     background-color: var(--color-skin);
     display: flex;
-    /* will-change: transform, top; */
     transition: all 0.5s ease-in-out;
 }
 
 .logo {
     margin-left: 3%;
-    /* width: 35%; */
 }
-
-/* header.sticky .logo {
-    width: 30%;
-} */
 
 .logo img {
     width: 300px;
@@ -218,72 +212,6 @@ header.sticky .blob-1 {
     top: 250px;
     right: 0;
     width: 300px;
-}
-
-#blob-1 {
-    width: 500px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    right: 1%;
-    top: 100%;
-    transform: rotate(180deg);
-}
-
-#blob-2 {
-    width: 500px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    left: 1%;
-    top: 180%;
-    transform: rotate(180deg);
-}
-
-#blob-3 {
-    width: 550px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    right: 19%;
-    top: 270%;
-    transform: rotate(45deg);
-}
-
-#blob-4 {
-    width: 450px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.2;
-    left: 1%;
-    top: 390%;
-}
-
-#blob-5 {
-    width: 450px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    right: 2%;
-    top: 465%;
-}
-
-#blob-6 {
-    width: 450px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    right: 2%;
-    top: 570%;
-}
-
-#blob-7 {
-    width: 750px;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.3;
-    right: 8%;
-    top: 660%;
 }
 
 .experiences {
@@ -470,7 +398,6 @@ header.sticky .blob-1 {
     margin: -20px auto;
     transform: rotate(25deg);
     transition: transform .3s linear, margin .3s linear;
-    width: 60%;
 }
 
 .card-1 h4,
