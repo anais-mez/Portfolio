@@ -1,13 +1,15 @@
-document.addEventListener("scroll", function () {
-    const anchoredCtaWeb = document.getElementById("header-change");
-    if (window.pageYOffset > 5) {
-        anchoredCtaWeb.style.minHeight = "70px";
-        anchoredCtaWeb.classList.add("sticky");
-    }
-    if (window.pageYOffset < 3) {
-        anchoredCtaWeb.classList.remove("sticky");
-    }
-});
+if (window.matchMedia("(min-width: 430px)").matches) {
+    document.addEventListener("scroll", function () {
+        const anchoredCtaWeb = document.getElementById("header-change");
+        if (window.pageYOffset > 4) {
+            anchoredCtaWeb.style.minHeight = "70px";
+            anchoredCtaWeb.classList.add("sticky");
+        }
+        if (window.pageYOffset < 3) {
+            anchoredCtaWeb.classList.remove("sticky");
+        }
+    });
+}
 
 function setActive(element) {
     // Supprimer la classe active de tous les éléments du menu
