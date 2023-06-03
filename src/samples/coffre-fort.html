@@ -1,12 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Coffre-fort</title>
+    <link rel="shortcut icon" href="../public/icon-bureau.png" type="image/png">
+
+    <link rel="stylesheet" href="../style/style-projet.css">
+    <link rel="stylesheet" href="../style/style-mid-projet.css">
+    <link rel="stylesheet" href="../style/style-phone-projet.css">
+
 </head>
+
 <body>
-    
+
+    <header id="header-sticky">
+
+        <div class="logo-sticky">
+            <a href="#"><img src="../img/logo-header.png" alt="Logo header"></a>
+        </div>
+
+        <div class="items-sticky">
+            <a href="https://anais-mez.github.io/Portfolio/#propos" class="menu-item active" onclick="setActive(this)">A
+                PROPOS</a>
+            <a href="https://anais-mez.github.io/Portfolio/#experiences" class="menu-item"
+                onclick="setActive(this)">EXPERIENCES</a>
+            <a href="https://anais-mez.github.io/Portfolio/#propos#projets" class="menu-item"
+                onclick="setActive(this)">PROJETS</a>
+            <a href="https://anais-mez.github.io/Portfolio/#propos#competences" class="menu-item"
+                onclick="setActive(this)">COMPETENCES</a>
+            <a href="https://anais-mez.github.io/Portfolio/#propos#hobbies" class="menu-item"
+                onclick="setActive(this)">LOISIRS</a>
+            <a href="https://anais-mez.github.io/Portfolio/#propos#contact" class="menu-item"
+                onclick="setActive(this)">CONTACT</a>
+        </div>
+
+    </header>
+
+    <main>
+        <section id="section-projet-description">
+            <img src="../img/porte-banque.png" alt="Porte de banque">
+
+            <div class="text-projet">
+                <h1>Coffre-fort</h1>
+                <h3>Arduino & C++ - 2021</h3>
+                <p>
+                    Le context de ce projet était qu'une agence d'espionnage voulait améliorer le système de sécurité de
+                    leur coffre-fort. Pour ce projet, nous avions à disposions une carte Arduino Uno, des résistances
+                    diverses, des LEDs, des transistors, des interrupteurs, des breadboards et un générateur 20V.
+                </p>
+                <p>
+                    Le système de sécurité devait identifier le modèle d'une carte électronique de chaque agent,
+                    déterminer le niveau de sécurité en fonction de celui-ci, l'appel des différents mécanismes
+                    d'authentification, et l'ouverture du coffre.
+                </p>
+                <p>
+                    Etant donné la restriction de temps que nous avions, nous n'avons réaliser que 5 mécanismes
+                    d'authentification sur la totalité des agents possible.
+                </p>
+            </div>
+        </section>
+
+        <section id="section-projet-context">
+            <h1>Contextualisation</h1>
+            <img src="../img/context-elec.jpg" alt="">
+            <p>
+                Nous possédions ce schéma afin d'avoir une idée du système d'authentification que nous devions mettre en
+                place.
+            </p>
+            <p>
+                Le système d'authentification pour l'ouverture du coffre se composait des éléments suivant :
+            <ul>
+                <li>Chaque agent dispose d'une carte électronique avec un numéro unique.</li>
+                <li>Une série d'interrupteurs doit être positionnée pour une première vérification.</li>
+                <li>La carte doit être insérée dans le coffre pour activer le système d'authentification.</li>
+                <li>Une fois la carte insérée et validée, un pavé numérique est disponible pour d'autres contrôles.</li>
+                <li>Les niveaux de sécurité varient selon l'habilitation de l'agent, déterminée par le système
+                    informatique du coffre.</li>
+                <li>Une fois tous les mécanismes validés, le coffre peut être ouvert.</li>
+            </ul>
+            Des mécanismes de reconnaissance supplémentaires, tels que la reconnaissance digitale, rétinienne ou vocale,
+            peuvent également être envisagés pour renforcer la sécurité. Le mécanisme d'activation de la carte reste à
+            déterminer, mais pourrait être basé sur une combinaison de résistance pour chaque modèle de carte.
+            </p>
+        </section>
+
+        <section id="section-projet-étape1">
+            <h1>Première proposition de solution</h1>
+            <p>
+                
+            </p>
+        </section>
+    </main>
+
+
+    <script src="../script/script.js"></script>
 </body>
+
 </html>
