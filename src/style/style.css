@@ -81,6 +81,14 @@ header.sticky .logo img {
     display: none;
 }
 
+.nav-toggler {
+    display: none;
+}
+
+header.sticky .nav-toggler {
+    display: none;
+}
+
 header.sticky .items {
     margin-left: 120px;
     width: 75%;
