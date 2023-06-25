@@ -59,9 +59,9 @@
     }
 
     header.sticky .items {
-        position: fixed;
+        position: absolute;
         width: 95%;
-        min-height: 50%;
+        min-height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -74,6 +74,8 @@
 
     header.sticky .items.active {
         transform: translateY(0);
+        background-color: var(--color-skin);
+        border-bottom: 1px solid var(--color-brun);
     }
 
     .items a {
