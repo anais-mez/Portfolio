@@ -60,8 +60,8 @@
 
     header.sticky .items {
         position: fixed;
-        width: 95vw;
-        min-height: 50vh;
+        width: 95%;
+        min-height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
