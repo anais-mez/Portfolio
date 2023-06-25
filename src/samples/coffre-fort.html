@@ -20,23 +20,25 @@
     <header id="header-sticky">
 
         <div class="logo-sticky">
-            <a href="#"><img src="../img/logo-header.png" alt="Logo header"></a>
+            <a href="https://anais-mez.github.io/Portfolio"><img src="../img/logo-header.png" alt="Logo header"></a>
         </div>
 
         <div class="items-sticky">
-            <a href="https://anais-mez.github.io/Portfolio/#propos" class="menu-item active" onclick="setActive(this)">A
-                PROPOS</a>
-            <a href="https://anais-mez.github.io/Portfolio/#experiences" class="menu-item"
-                onclick="setActive(this)">EXPERIENCES</a>
-            <a href="https://anais-mez.github.io/Portfolio/#propos#projets" class="menu-item"
-                onclick="setActive(this)">PROJETS</a>
-            <a href="https://anais-mez.github.io/Portfolio/#propos#competences" class="menu-item"
-                onclick="setActive(this)">COMPETENCES</a>
-            <a href="https://anais-mez.github.io/Portfolio/#propos#hobbies" class="menu-item"
-                onclick="setActive(this)">LOISIRS</a>
-            <a href="https://anais-mez.github.io/Portfolio/#propos#contact" class="menu-item"
-                onclick="setActive(this)">CONTACT</a>
+            <a href="#" class="menu-item active" onclick="setActive(this)">
+                DESCRIPTION</a>
+            <a href="#section-projet-circuits-logiques" class="menu-item" onclick="setActive(this)">CIRCUITS
+                LOGIQUES</a>
+            <a href="#section-projet-circuits-electriques" class="menu-item" onclick="setActive(this)">CIRCUITS
+                ELECTRONIQUES</a>
+            <a href="#section-projet-algorithmes" class="menu-item" onclick="setActive(this)">ALGORITHMES</a>
+            <a href="#section-projet-programme" class="menu-item" onclick="setActive(this)">PROGRAMME</a>
         </div>
+
+        <button type="button" class="nav-toggler" onclick="toggleNav()" aria-label="toggle curtain navigation">
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+        </button>
 
     </header>
 
@@ -64,35 +66,62 @@
             </div>
         </section>
 
-        <section id="section-projet-context">
-            <h1>Contextualisation</h1>
-            <img src="../img/context-elec.jpg" alt="">
-            <p>
-                Nous possédions ce schéma afin d'avoir une idée du système d'authentification que nous devions mettre en
-                place.
-            </p>
-            <p>
-                Le système d'authentification pour l'ouverture du coffre se composait des éléments suivant :
-            <ul>
-                <li>Chaque agent dispose d'une carte électronique avec un numéro unique.</li>
-                <li>Une série d'interrupteurs doit être positionnée pour une première vérification.</li>
-                <li>La carte doit être insérée dans le coffre pour activer le système d'authentification.</li>
-                <li>Une fois la carte insérée et validée, un pavé numérique est disponible pour d'autres contrôles.</li>
-                <li>Les niveaux de sécurité varient selon l'habilitation de l'agent, déterminée par le système
-                    informatique du coffre.</li>
-                <li>Une fois tous les mécanismes validés, le coffre peut être ouvert.</li>
-            </ul>
-            Des mécanismes de reconnaissance supplémentaires, tels que la reconnaissance digitale, rétinienne ou vocale,
-            peuvent également être envisagés pour renforcer la sécurité. Le mécanisme d'activation de la carte reste à
-            déterminer, mais pourrait être basé sur une combinaison de résistance pour chaque modèle de carte.
-            </p>
-        </section>
+        <section id="section-projet-circuits-logiques">
+            <h1>Les circuits logiques</h1>
 
-        <section id="section-projet-étape1">
-            <h1>Première proposition de solution</h1>
-            <p>
-                
-            </p>
+            <div class="content-circuits-logiques">
+                <img src="../img/context-elec.jpg" alt="Image de contextualisation du projet">
+
+                <div class="text-circuits-logiques">
+                    <p>
+                        Ce schéma sert de context. Il existe quatre entrées qui sont les interrupteurs I1, I2, I3 et I4.
+                        Il existe également huit modèles pour les différentes cartes. Voici donc la table de vérité qui
+                        en ressort :
+                    </p>
+
+                    <img src="../img/table_verite.png" alt="Table de vérité">
+
+                    <div class="row">
+                        <img src="../img/circuit-exemple.png" alt="Exemple de circuit logique">
+
+                        <p>
+                            Voici quelques petites explications, sur l'image ci-contre, on y voit une porte logique "ET"
+                            qui
+                            a cinq entrées qui correspondent aux interrupteurs (le cercle rouge) et une entrée qui
+                            correspond à si la carte est activée ou pas (le cercle vert).
+                        </p>
+                    </div>
+
+                    <p>
+                        Chaque carte correspond à un enchaînement d'interrupteurs unique afin d'avoir plus de
+                        sécurité.
+                    </p>
+
+                    <h3>Circuit logique interne du coffre</h3>
+
+                    <div class="interne-coffre">
+                        <p>
+                            Dans le circuit interne du coffre, selon la combinaison d'interrupteurs, c'est-à-dire, selon la
+                            carte sélectionnée, le circuit logique indique à quel modèle elle correspond.
+                        </p>
+    
+                        <img src="../img/circuit-logique-coffre.png" alt="Circuit logique interne du coffre">
+                    </div>
+
+                    <h3>Circuit logique du comparateur de sorties</h3>
+
+                    <img src="../img/circuit-logique-final.png" alt="Circuit logique final">
+
+                    <p>
+                        Le schéma suivant est un circuit logique permettant de comparer les sorties. Comme sur le
+                        circuit précédent, on commence par faire la combinaison d'interrupteurs, ensuite le système ba
+                        détecter à quelle carte correspond la combinaison. La porte "ET" afin de vérifier si la carte
+                        est insérée. En parallèle, on fait correspondre les combinaisons avec leur modèle et enfin on
+                        utilise des comparateurs qui comparent une carte avec un modèle (le cercle rouge).
+                    </p>
+                </div>
+            </div>
+
         </section>
     </main>
 
