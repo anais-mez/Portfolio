@@ -73,7 +73,7 @@
     }
 
     header.sticky .items.active {
-        transform: translate(0);
+        transform: translateY(0);
     }
 
     .items a {
