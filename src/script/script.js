@@ -20,7 +20,7 @@ function setActive(element) {
     element.classList.add('active');
 }
 
-if (window.matchMedia("(max-width: 430px)").matches) {
+// if (window.matchMedia("(max-width: 430px)").matches) {
     const hamburgerButton = document.querySelector(".nav-toggler")
     const navigation = document.querySelector(".items")
 
@@ -30,4 +30,4 @@ if (window.matchMedia("(max-width: 430px)").matches) {
     }
 
     hamburgerButton.addEventListener("click", toggleNav)
-}
+// }
