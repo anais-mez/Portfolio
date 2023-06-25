@@ -21,15 +21,16 @@ function setActive(element) {
 }
 
 if (window.matchMedia("(max-width: 430px)").matches) {
-// document.addEventListener("DOMContentLoaded", function () {
     const hamburgerButton = document.querySelector(".nav-toggler");
     const navigation = document.querySelector(".items");
 
-    // hamburgerButton.addEventListener("click", toggleNav);
-
-    function toggleNav() {
+    // Utiliser une fonction fléchée pour lier correctement `this` dans les gestionnaires d'événements
+    const toggleNav = () => {
         hamburgerButton.classList.toggle("active");
         navigation.classList.toggle("active");
-    }
-// });
+    };
+
+    // Utiliser l'événement "touchstart" en plus de "click" pour une meilleure compatibilité tactile
+    hamburgerButton.addEventListener("click", toggleNav);
+    // hamburgerButton.addEventListener("touchstart", toggleNav);
 }
