@@ -20,14 +20,16 @@ function setActive(element) {
     element.classList.add('active');
 }
 
-// if (window.matchMedia("(max-width: 430px)").matches) {
-    const hamburgerButton = document.querySelector(".nav-toggler")
-    const navigation = document.querySelector(".items")
+if (window.matchMedia("(max-width: 430px)").matches) {
+// document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerButton = document.querySelector(".nav-toggler");
+    const navigation = document.querySelector(".items");
+
+    hamburgerButton.addEventListener("click", toggleNav);
 
     function toggleNav() {
-        hamburgerButton.classList.toggle("active")
-        navigation.classList.toggle("active")
+        hamburgerButton.classList.toggle("active");
+        navigation.classList.toggle("active");
     }
-
-    hamburgerButton.addEventListener("click", toggleNav)
-// }
+// });
+}
