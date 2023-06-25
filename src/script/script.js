@@ -25,7 +25,7 @@ if (window.matchMedia("(max-width: 430px)").matches) {
     const hamburgerButton = document.querySelector(".nav-toggler");
     const navigation = document.querySelector(".items");
 
-    hamburgerButton.addEventListener("click", toggleNav);
+    // hamburgerButton.addEventListener("click", toggleNav);
 
     function toggleNav() {
         hamburgerButton.classList.toggle("active");
