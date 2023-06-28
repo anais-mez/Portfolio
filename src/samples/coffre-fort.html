@@ -30,7 +30,7 @@
                 LOGIQUES</a>
             <a href="#section-projet-circuits-electriques" class="menu-item" onclick="setActive(this)">CIRCUITS
                 ELECTRONIQUES</a>
-            <a href="#section-projet-algorithmes" class="menu-item" onclick="setActive(this)">ALGORITHMES</a>
+            <a href="#section-projet-algorithmes" class="menu-item" onclick="setActive(this)">LOGIGRAMMES</a>
             <a href="#section-projet-programme" class="menu-item" onclick="setActive(this)">PROGRAMME</a>
         </div>
 
@@ -67,7 +67,7 @@
         </section>
 
         <section id="section-projet-circuits-logiques">
-            <h1>Les circuits logiques</h1>
+            <h1>LES CIRCUITS LOGIQUES</h1>
 
             <div class="content-circuits-logiques">
                 <img src="../img/context-elec.jpg" alt="Image de contextualisation du projet">
@@ -101,10 +101,11 @@
 
                     <div class="interne-coffre">
                         <p>
-                            Dans le circuit interne du coffre, selon la combinaison d'interrupteurs, c'est-à-dire, selon la
+                            Dans le circuit interne du coffre, selon la combinaison d'interrupteurs, c'est-à-dire, selon
+                            la
                             carte sélectionnée, le circuit logique indique à quel modèle elle correspond.
                         </p>
-    
+
                         <img src="../img/circuit-logique-coffre.png" alt="Circuit logique interne du coffre">
                     </div>
 
@@ -120,6 +121,188 @@
                         utilise des comparateurs qui comparent une carte avec un modèle (le cercle rouge).
                     </p>
                 </div>
+            </div>
+
+        </section>
+
+        <section id="section-projet-circuits-electriques">
+            <h1>LES CIRCUITS ELECTRONIQUES</h1>
+            <p>
+                La carte Arduino a pour rôle d'identifier un modèle en fonction de la tension d'entrée qu'il va
+                recevoir. En fonction de celle-ci, la carte Arduino va permettre à l'agent de rentrer son code sur le
+                digicode. Nous avions remarqué que plus la résistance équivalente était élevée, plus la tension de
+                sortie diminuait.
+            </p>
+
+            <h3>Schéma logique simplifié de la carte</h3>
+
+            <div class="elect-row1">
+                <p>
+                    Pour le schéma logique simplifié de la carte, nous avons eu comme carte à implémenter celle avec les
+                    interrupteurs I1 et I4 avec les résistances R1 et R3. Le nombre d'entrée sera donc de quatre
+                    interrupteurs et de deux sorties, les résistances. Les interrupteurs I2 et
+                    I3 ont une porte "NON" pour que les interrupteurs soient égaux à 0 tout en activant la porte "ET" si
+                    les deux autres interrupteurs sont actifs.
+                </p>
+                <img src="../img/circuit-elec-carte-simpl.png" alt="Circuit logique de la carte simplifié">
+            </div>
+
+            <h3>Circuit électronique de la carte</h3>
+
+            <div class="elect-row2">
+                <p>
+                    Afin de pouvoir créer le circuit électronique de la carte, il a fallu que nous cherchions comment
+                    traduire des portes logiques en circuit électronique. <br>
+                    La porte "NON" se traduit par un transistors et de deux résistances. Si le transistor reçoit du
+                    courant à sa base, le transistorlaisse passer le courant du générateur directement vers la mise à
+                    terre et donc ne passe pas vers les autres transistors de la porte "ET". <br>
+                    La porte "ET" se traduit par la combinaison en série d'autant de transistors qu'il y a d'entrée dans
+                    la porte "ET". Ainsi, si l'un des transistors ne reçoit pas de courant à sa base, le courant ne
+                    passe pas vers les prochains.
+                </p>
+                <img src="../img/circuit-elec-carte.png" alt="Circuit électronique de la carte">
+            </div>
+            <p>
+                <b>Légende :</b> <br>
+                - L'encadré rouge représente la traduction de plusieurs portes logiques non. <br>
+                - L'encadré bordeaux représente des transistor qui quelque soit le passage de courant ne renvoie de
+                courant à sa résistance associé. <br>
+                - L'encadré jaune désigne les entrées délivrant ou non un courant électrique. <br>
+                - L'encadré orange désigne les sorties délivrant ou non un courant électrique. <br>
+                - L'encadré vert désigne les deux transistors faisant passer le courant à condition que les
+                interrupteurs I1 et I4 soit en position fermés. <br>
+                - Les encadrés violet désignent respectivement la borne positive d'un générateur et la borne
+                négative.
+            </p>
+
+            <h3>Circuit électronique du coffre</h3>
+
+            <div class="elect-row3">
+                <p>
+                    Afin de produire le circuit électrique complet du coffre, il nous a fallu reproduire le circuit du
+                    coffre qui nous était fourni sur le logiciel LTspice. Par la suite, nous avons intégrer le circuit
+                    de la carte ce qui nous donne ceci :
+                </p>
+                <img src="../img/circuit-elec-coffre.png" alt="Circuit électronique du coffre">
+            </div>
+            <p>
+                <b>Légende :</b> <br>
+                - L'encadré vert désigne la borne positive et négative d'un générateur. <br>
+                - L'encadré jaune désigne les interrupteurs. <br>
+                - L'encadré rouge représente le circuit électrique de la carte. <br>
+                - L'encadré jaune foncé représente les différentes DEL (diode électroluminescente). <br>
+                - L'encadré noir représente les différentes résistances. <br>
+                - L'encadré orange représente la DEL permettant d'affirmer ou non la présence de courant électrique dans
+                la carte Arduino. <br>
+                - L'encadré bleu désigne la résistance R5 permettant d'influer sur la tension en entrée de la carte
+                Arduino. <br>
+                - L'encadré violet désigne la carte Arduino.
+            </p>
+
+        </section>
+
+        <section id="section-projet-algorithmes">
+            <h1>LES LOGIGRAMMES</h1>
+            <p>
+                Nous avons réalisé divers algorithmes sous forme de logigrammes de chaque mécanismes d'authentification
+                sous forme de questions, ensuite l'algorithme principal du système d'authentification du coffre
+                décrivant le processus complet (depuis l'identification du modèle de carte, la détermination du niveau
+                de sécurité, l'appel aux différents mécanismes d'authentification et enfin l'ouverture du coffre).
+            </p>
+
+            <h3>Logigrammes des mécanismes d'authentification questions</h3>
+
+            <h4>Premier mécanisme d'authentification</h4>
+            <div class="algo-row1">
+                <p>
+                    Le premier algorithme du mécanisme d'authentification est une première question avec quatre
+                    propositions de réponses. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4. La
+                    première question est donc "Quelle est la capitale de la France ?", les différents choix étaient
+                    "Paris", "Marseille", "Lille" ou "Moscou".
+                </p>
+                <img src="../img/algo-quest1.png" alt="Algorithme, premier mécanisme d'authentification">
+                <p>
+                    Pour cette algorithme, on commence par déclarer nos deux premières variables qui sont la variable
+                    "response1" et la variable "response". Le programme enverra cinq message dont la question et les
+                    quatre réponses possibles. L'agent indique ensuite la réponse qui lui paraît être la bonne. Par la
+                    suite, quatre fonctions "si" vérifirons la réponse entrée. Dans ce cas, la bonne réponse est la
+                    réponse 3, "response = 3", le programme attribuera "response1 = 1" mais si la réponse n'est pas
+                    correcte, alors nous aurons "response1 = 0" et donc le programme affichera une erreur.
+                </p>
+            </div>
+
+            <h4>Second mécanisme d'authentification</h4>
+            <div class="algo-row2">
+                <p>
+                    Le second algorithme du mécanisme d'authentification est une deuxième question avec quatre
+                    propositions de réponses également. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4.
+                    La
+                    première question est donc "Quel est le résultat de 5! ?", les différents choix étaient
+                    "120", "12", "1.2" ou "Moscou".
+                </p>
+                <img src="../img/algo-quest2.png" alt="Algorithme, deuxième mécanisme d'authentification">
+                <p>
+                    L'explication est la même que pour la fonction de la première question sauf qu'au début on déclare
+                    "response2". La question et les réponses sont différentes mais le principe reste le même. Dans cette
+                    fonction, la bonne réponse est la réponse "120" donc l'agent doit indiquer la réponse 1 afin que
+                    "response2" soit égale à 1.
+                </p>
+            </div>
+
+            <h4>Troisième mécanisme d'authentification</h4>
+            <div class="algo-row3">
+                <p>
+                    Le troisème algorithme du mécanisme d'authentification est encore une question avec quatre
+                    propositions de réponses. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4. La
+                    première question est donc "Êtes-vous un vrai Agent ?", les différents choix étaient
+                    "Oui", "Non", "Peut-être" ou "Moscou".
+                </p>
+                <img src="../img/algo-quest3.png" alt="Algorithme, troisième mécanisme d'authentification">
+                <p>
+                    L'explication est la même que pour la fonction de la première question sauf qu'au début on déclare
+                    "response3". La question et les réponses sont différentes mais le principe reste le même. Dans cette
+                    fonction, la bonne réponse est la réponse "Oui" donc l'agent doit indiquer la réponse 2 afin que
+                    "response2" soit égale à 1.
+                </p>
+            </div>
+
+            <h4>Dernier mécanisme d'authentification</h4>
+            <div class="algo-row4">
+                <p>
+                    Le dernier algorithme du mécanisme d'authentification est une quatrième question avec quatre
+                    propositions de réponses. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4. La
+                    première question est donc "Quelle est la couleur du cheval blanc de Napoléon ?", les différents
+                    choix étaient
+                    "Noir", "Blanc", "Moscou" ou "Gris".
+                </p>
+                <img src="../img/algo-quest4.png" alt="Algorithme, dernier mécanisme d'authentification">
+                <p>
+                    L'explication est la même que pour la fonction de la première question sauf qu'au début on déclare
+                    "response4". La question et les réponses sont différentes mais le principe reste le même. Dans cette
+                    fonction, la bonne réponse est la réponse "Oui" donc l'agent doit indiquer la réponse 4 afin que
+                    "response2" soit égale à 1.
+                </p>
+            </div>
+
+            <h3>Mécanisme d'authentification par identification</h3>
+
+            <h4>Premier mécanisme d'authentification</h4>
+            <div class="algo-row5">
+                <p>
+                    Le premier algorithme du mécanisme d'authentification est une première question avec quatre
+                    propositions de réponses. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4. La
+                    première question est donc "Quelle est la capitale de la France ?", les différents choix étaient
+                    "Paris", "Marseille", "Lille" ou "Moscou".
+                </p>
+                <img src="../img/algo-quest1.png" alt="Algorithme, premier mécanisme d'authentification">
+                <p>
+                    Pour cette algorithme, on commence par déclarer nos deux premières variables qui sont la variable
+                    "response1" et la variable "response". Le programme enverra cinq message dont la question et les
+                    quatre réponses possibles. L'agent indique ensuite la réponse qui lui paraît être la bonne. Par la
+                    suite, quatre fonctions "si" vérifirons la réponse entrée. Dans ce cas, la bonne réponse est la
+                    réponse 3, "response = 3", le programme attribuera "response1 = 1" mais si la réponse n'est pas
+                    correcte, alors nous aurons "response1 = 0" et donc le programme affichera une erreur.
+                </p>
             </div>
 
         </section>
