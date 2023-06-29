@@ -286,22 +286,132 @@
 
             <h3>Mécanisme d'authentification par identification</h3>
 
-            <h4>Premier mécanisme d'authentification</h4>
             <div class="algo-row5">
                 <p>
-                    Le premier algorithme du mécanisme d'authentification est une première question avec quatre
-                    propositions de réponses. L'agent aura donc juste à choisir parmi la réponse 1, 2, 3 ou 4. La
-                    première question est donc "Quelle est la capitale de la France ?", les différents choix étaient
-                    "Paris", "Marseille", "Lille" ou "Moscou".
+                    Ce mécanisme d'authentification par identification demande à l'agent d'indiquer des informations
+                    d'identification afin de vérifier s'il s'agit réellement d'un agent ou d'un intru.
                 </p>
-                <img src="../img/algo-quest1.png" alt="Algorithme, premier mécanisme d'authentification">
+                <img src="../img/algo-ma2.png" alt="Algorithme, mécanisme d'authentification par identification">
                 <p>
-                    Pour cette algorithme, on commence par déclarer nos deux premières variables qui sont la variable
-                    "response1" et la variable "response". Le programme enverra cinq message dont la question et les
-                    quatre réponses possibles. L'agent indique ensuite la réponse qui lui paraît être la bonne. Par la
-                    suite, quatre fonctions "si" vérifirons la réponse entrée. Dans ce cas, la bonne réponse est la
-                    réponse 3, "response = 3", le programme attribuera "response1 = 1" mais si la réponse n'est pas
-                    correcte, alors nous aurons "response1 = 0" et donc le programme affichera une erreur.
+                    Premièrement, on déclare des variables d'entrées, les entiers e, M, Mp et C ainsi qu'un strin x. Le
+                    programme affiche le message "identifiez-vous" puis attend que l'agent rentre la valeur x,
+                    c'est-à-dire son nom. Ensuite le programme appelle les fonctions Random(), CleAgent() et Chiffrer()
+                    et assigne les valeurs retournés par ces fonctions aux variables M, e et C dans cet ordre. <br>
+                    Puis le programme renvoie le message "Message à chiffrer :" ainsi que la variable "C", étant le
+                    nombre "M" chiffré par la clé publique "e" et attend que l'agent rentre le message déchiffré. <br>
+                    Enfin une condition "si" vérifie si le nombre "Mp" entré par l'agent sont bien les mêmes. Dans
+                    chacun des cas le programme affiche un message validant l'authentification ou non.
+                </p>
+            </div>
+
+            <h4>Logigramme, fonction Chiffrer()</h4>
+            <div class="algo-row6">
+                <p>
+                    La fonction Chiffrer() si contre est une des fonctions appelé dans le programme principal ayant pour
+                    rôle de retourner un message chiffré à partir du message originel et d'une clé publique permettant
+                    le chiffrement. <br>
+                    Tout d'abord, la fonction déclare deux variables d'entiers nommé "n" et "C". Ensuite on assigne la
+                    valeur de 2881 (43*67) à la variable "n". Puis on assigne à la variable "C", la valeur retournée par
+                    la fonction "Modexp()" avec "M", "e" et "n" comme paramètres. Et enfin, la fonction reetourne la
+                    variable "C".
+                </p>
+                <img src="../img/algo-fonction-chiffrer.png" alt="Algorithme, fonction Chiffrer()">
+            </div>
+
+            <h4>Logigramme, fonction CleAgent()</h4>
+            <div class="algo-row7">
+                <p>
+                    La fonction CleAgent() a pour paramètre une variable de type chaîne de caractère nommé "x". <br>
+                    La fonction déclare un tableau de taille 16 et de type chaîne de caractère nommé "NameAgent".
+                    Après chacunes des cases du tableaux lui est assigné une lettre allant de "A" à "Q" excepté "G".
+                    <br>
+                    La fonction déclare un tableau de taille 16 et de type entier commé "ClePublic". Ensuite chacune des
+                    cases du tableau lui est assigné une valeur d'enter allant de 601 à 811. <br>
+                    Enfin la fonction déclare deux variables d'entiers nommé "e" et "i". Puis une boucle "for" est créée
+                    avec "i" comme compteur allant de la valeur 0 à la valeur 15. Cette boucle contient une condition
+                    pour que la valeur du tableau "NameAgent" avec l'indice "i" équivaut à la variable "x" alors on
+                    assigne la "i"ème valeur du tableau "ClePublic" à la variable "e". Pour terminer, le programme
+                    retourne la variable "e".
+                </p>
+                <img src="../img/algo-fonction-cleagent.png" alt="Algorithme, fonction CleAgent()">
+            </div>
+
+            <h4>Logigramme, fonction Modexp()</h4>
+            <div class="algo-row8">
+                <p>
+                    La fonction Modexp() a pour paramètre 3 variables de type entier et retourne une variable de type
+                    entier nommé "r". <br>
+                    Premièrement, la fonction déclare la variable "r" puis vérifie que la clé publique entré en
+                    paramètre est bien un entier positif. Si ce n'est pas le cas, la fonction affiche le message
+                    "unhandled case" et termine le programme.
+                </p>
+                <img src="../img/algo-fonctionmodex1.png" alt="Algorithme, fonction Modexp()">
+            </div>
+            <div class="algo-row9">
+                <p>
+                    Ensuite le programme vérifie que la variable "a" n'équivaut pas au 0 ou que la variable "n"
+                    n'équivaut pas à 1. Dans le cas contraire la fonction assigne à la variable "r" la valeur 0 et
+                    retourne la variable "r". <br>
+                    Dans les cas où est "a" est différent de 0 et "n" différent de 1 à la variable "r" et on entre dans
+                    une boucle "while". La boucle a pour condition tant que "e" est supérieur à 0. Tant que cette
+                    condition est remplie, on assigne l'opération suivante à "r" et on retire 1 à la variable "e": (r *
+                    (a mod n)) mod n. Enfin la fonction retourne la variable "r".
+                </p>
+                <img src="../img/algo-fonctionmodex2.png" alt="Algorithme, fonction Modexp()">
+            </div>
+
+            <h3>Mécanisme d'authentification par identification rétinienne</h3>
+
+            <div class="algo-row10">
+                <p>
+                    Comme son nom l'indique, ce mécanisme d'authentification permet d'identifier l'agent à partir de sa
+                    rétine. Nous n'avions pas réellement de lecteur de rétine alors nous avons fait au plus simple, nous
+                    avons une variable "rétine" ensuite nous avons l'affichage d'un message disant "Montrez votre
+                    rétine" puis elle est enregistrée en entrée et nous avons une fonction si, en cas d'erreur ou de
+                    mauvaise rétine, le programme affiche une erreur.
+                </p>
+                <img src="../img/algo-fonction-retine.png"
+                    alt="Algorithme, mécanisme d'authentification par identification rétinienne">
+            </div>
+            </div>
+
+            <h3>Mécanisme d'authentification par identification digitale</h3>
+
+            <div class="algo-row10">
+                <p>
+                    Comme son nom l'indique, ce mécanisme d'authentification permet d'identifier l'agent à partir de
+                    l'empreinte de son doigt. Le principe de fonctionnement est exactement le même que le précédent mis
+                    à part qu'on demande à l'agent de présenter l'un de ses doigts et non pas un oeil.
+                </p>
+                <img src="../img/algo-fonction-digitale.png"
+                    alt="Algorithme, mécanisme d'authentification par identification digitale">
+            </div>
+            </div>
+
+            <h3>Algorithme de la fonction principale</h3>
+
+            <div class="algo-row10">
+                <p>
+                    La fonction principale reprend toutes les fonctions vu précédemment en y ajoutant de nouvelles moins
+                    importantes. Cet algorithme reprend donc le fonctionne du coffre-fort, ce sera le cheminement que
+                    les agents devront suivre afin de pouvoir accéder au contenu de celui-ci.
+                </p>
+                <img src="../img/algo-fonction-main.png" alt="Algorithme, fonction principale">
+                <p>
+                    Afin de rentrer plus dans les détails, je vais vous expliquer comment a été construit ce logigramme.
+                    Premièrement nous déclarons les variables "cartes", "Ns" et "Model" qui sont des entiers ainsi que
+                    "R1", "R2", "R3", "R4" et "R5" qui eux sont des réels. Le programme demande donc à l'agent d'entrer
+                    son numéro de carte qui sera déclaré comme entrée "carte". <br>
+                    On appelle la fonction Model() qui permettra de savoir après quel niveau de sécurité l'agent va
+                    devoir effectuer. Ensuite, on utilise la fonction "si" de telle sorte que si le modèle est égal à 9,
+                    alors le programme s'arrête, si le modèle est 1 ou 2, alors ce sera le niveau de sécurité 1 qui sera
+                    mis en place. <br>
+                    On appelle la fonction "Ns" sur le model ce qui donne "Ns = NS(model)". En fonction du modèle de la
+                    carte apparaît donc un message nous disant le numéro d'authentification. Maintenant entre en jeu les
+                    différents mécanisme d'authentification vu précédement. <br>
+                    Si l'agent réussi à passer les différents mécanismes d'authentification qui lui était démandé, son
+                    authentification est validé et donc le coffre s'ouvrira. Dans le cas contraire, une erreur
+                    s'affichera et l'agent devra retirer sa carte avant de pouvoir recommencer.
                 </p>
             </div>
 
