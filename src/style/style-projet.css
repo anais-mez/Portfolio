@@ -245,6 +245,7 @@ section#section-projet-circuits-electriques {
 }
 
 #section-projet-algorithmes  {
+    border-top: 1px dashed var(--color-brun);
     width: 80%;
     margin: 2% auto;
     display: flex;
@@ -422,6 +423,7 @@ section#section-projet-circuits-electriques {
 }
 
 #section-projet-programme  {
+    border-top: 1px dashed var(--color-brun);
     width: 80%;
     margin: 2% auto;
     display: flex;
@@ -463,4 +465,92 @@ section#section-projet-circuits-electriques {
     font-family: 'nunito';
     text-align: justify;
     margin: 0 auto;
+}
+
+.prog-row-1,
+.prog-row1,
+.prog-row3,
+.prog-row5,
+.prog-row7,
+.prog-row9,
+.prog-row11,
+.prog-row13 {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px auto;
+}
+
+
+.prog-row-2,
+.prog-row2,
+.prog-row4,
+.prog-row6,
+.prog-row8,
+.prog-row10,
+.prog-row12,
+.prog-row14  {
+    width: 85%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.prog-row-1 p,
+.prog-row-2 p,
+.prog-row1 p,
+.prog-row2 p,
+.prog-row3 p,
+.prog-row4 p,
+.prog-row5 p,
+.prog-row6 p,
+.prog-row8 p,
+.prog-row7 p,
+.prog-row9 p,
+.prog-row10 p,
+.prog-row11 p,
+.prog-row12 p,
+.prog-row13 p,
+.prog-row14 p {
+    padding: 20px;
+}
+
+.prog-row15 {
+    margin: 0 auto;
+    width: 85%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.prog-row15 img {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.prog-row16 {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prog-row16 img {
+    width: 100px;
+    height: 100px;
+}
+
+.prog-row16 a {
+    padding-left: 50px;
+    text-decoration: none;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
+    font-size: 20px;
+}
+
+#lien-code-source {
+    padding-top: 30px;
+    border-top: 1px dashed var(--color-brun);
 }

@@ -18,7 +18,7 @@
     }
 
     .blob-1 {
-        position: absolute;
+        position: absolute; 
         right: 0;
         top: 80px;
         z-index: 0;

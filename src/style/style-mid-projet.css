@@ -1,0 +1,240 @@
+@media screen and (max-width: 960px) {
+    #header-sticky {
+        height: 60px;
+    }
+
+    .logo-sticky img {
+        width: 170px;
+    }
+
+    #header-sticky .items-sticky {
+        position: absolute;
+        width: 80%;
+        min-height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--color-skin);
+        border-bottom: 1px solid var(--color-brun);
+        top: -100vh;
+        transition: top 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
+    }
+
+    #header-sticky .items-sticky.active {
+        top: 0;
+        padding-top: 50px;
+        background-color: var(--color-skin);
+        border-bottom: 1px solid var(--color-brun);
+    }
+
+    .items-sticky a {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+    #header-sticky .nav-toggler {
+        position: fixed;
+        z-index: 1000000;
+        top: 8px;
+        right: 50px;
+        height: 50px;
+        width: 40px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+    }
+
+    .line {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--color-brun);
+        transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+    }
+
+    .l1 {
+        transform: translateY(-10px);
+    }
+
+    .l3 {
+        transform: translateY(10px);
+    }
+
+    .nav-toggler.active .l1 {
+        transform: translateY(0px) rotate(135deg);
+    }
+
+    .nav-toggler.active .l2 {
+        opacity: 0;  
+    }
+
+    .nav-toggler.active .l3 {
+        transform: translateY(0px) rotate(-135deg);
+    }
+
+    /* DESCRIPTION */
+
+    #section-projet-description {
+        width: 95% !important;
+    }
+
+    #section-projet-description img {
+        margin-top: 5%;
+        width: 70%;
+        margin-right: 30px !important;
+    }
+
+    #section-projet-circuits-electriques .elect-row3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .algo-row1,
+    .algo-row6,
+    .algo-row8,
+    .algo-row9,
+    .algo-row11 {
+        width: 85%;
+    }
+
+    .algo-row1 img,
+    .algo-row3 img,
+    .algo-row2 img,
+    .algo-row7 img,
+    .algo-row8 img,
+    .algo-row9 img,
+    .algo-row10 img,
+    .algo-row11 img {
+        width: 80%;
+    }
+
+    .algo-row5 img {
+        width: 75%;
+    }
+
+    .algo-row4 img {
+        width: 90%;
+    }
+
+    .algo-row2,
+    .algo-row5,
+    .algo-row3,
+    .algo-row4,
+    .algo-row7,
+    .algo-row10 {
+        width: 85%;
+        flex-direction: column !important;
+    }
+
+    #section-projet-algorithmes p {
+        width: 85%;
+    }
+
+    .prog-row15 img {
+        width: 100%;
+    }
+
+    .prog-row15 p {
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .prog-row-1,
+    .prog-row1,
+    .prog-row3,
+    .prog-row5,
+    .prog-row7,
+    .prog-row9,
+    .prog-row11,
+    .prog-row13,
+    .prog-row-2,
+    .prog-row2,
+    .prog-row4,
+    .prog-row6,
+    .prog-row8,
+    .prog-row10,
+    .prog-row12,
+    .prog-row14,
+    .prog-row15,
+    .prog-row16 {
+        width: 95%;
+    }
+
+    .prog-row-1,
+    .prog-row-2,
+    .prog-row2,
+    .prog-row3,
+    .prog-row4,
+    .prog-row5,
+    .prog-row6,
+    .prog-row8,
+    .prog-row12 {
+        flex-direction: column;
+    }
+
+    .prog-row-1 img,
+    .prog-row-2 img,
+    .prog-row2 img,
+    .prog-row3 img,
+    .prog-row4 img,
+    .prog-row5 img,
+    .prog-row6 img,
+    .prog-row8 img,
+    .prog-row12 img {
+        width: 85%;
+    }
+
+    .prog-row1 img,
+    .prog-row7 img,
+    .prog-row9 img,
+    .prog-row10 img,
+    .prog-row11 img,
+    .prog-row13 img,
+    .prog-row14 img {
+        width: 70%;
+    }
+
+    .content-circuits-logiques > img {
+        width: 100%;
+    }
+
+    .text-circuits-logiques img {
+        width: 100%;
+    }
+
+    .text-circuits-logiques .row img {
+        width: 70%;
+    }
+
+    .interne-coffre {
+        width: 80% !important;
+    }
+
+    .text-circuits-logiques .interne-coffre img  {
+        width: 80%;
+    }
+
+    .elect-row1 img {
+        width: 80%;
+    }
+
+    .elect-row2 {
+        flex-direction: column !important;
+    }
+
+    .elect-row2 img {
+        width: 90%;
+    }
+
+    .elect-row3 img {
+        width: 90%;
+    }
+}
