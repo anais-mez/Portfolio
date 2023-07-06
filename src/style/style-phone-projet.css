@@ -1,0 +1,125 @@
+@media screen and (max-width: 430px) {
+    #header-sticky .nav-toggler {
+        position: fixed;
+        z-index: 1000000;
+        top: 8px;
+        right: 30px;
+        height: 50px;
+        width: 40px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+    }
+
+    #header-sticky .items-sticky {
+        position: absolute;
+        width: 85%;
+        right: 5%;
+        min-height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--color-skin);
+        border-bottom: 1px solid var(--color-brun);
+        top: -100vh;
+        transition: top 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
+    }
+
+    #section-projet-description {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #section-projet-description img {
+        margin: 0 auto;
+        height: auto;
+    }
+
+    #section-projet-circuits-electriques h1 {
+        font-size: 36px;
+    }
+
+    #section-projet-circuits-electriques h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-circuits-electriques h4 {
+        font-size: 20px;
+    }
+
+    #section-projet-circuits-logiques h1 {
+        font-size: 40px;
+    }
+
+    #section-projet-circuits-logiques h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-circuits-logiques h4 {
+        font-size: 20px;
+    }
+
+    #section-projet-algorithmes h1 {
+        font-size: 40px;
+    }
+
+    #section-projet-algorithmes h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-algorithmes h4 {
+        font-size: 20px;
+    }
+
+    #section-projet-programme h1 {
+        font-size: 40px;
+    }
+
+    #section-projet-programme h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-programme h4 {
+        font-size: 20px;
+    }
+
+    .text-circuits-logiques .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-circuits-logiques .row img {
+        margin: 0 auto;
+    }
+
+    .interne-coffre {
+        justify-content: center;
+    }
+
+    .elect-row1,
+    .algo-row1,
+    .algo-row6,
+    .algo-row7,
+    .algo-row8,
+    .algo-row9,
+    .algo-row11,
+    .prog-row1,
+    .prog-row7,
+    .prog-row9,
+    .prog-row10,
+    .prog-row11,
+    .prog-row13,
+    .prog-row14 {
+        flex-direction: column;
+    }
+
+    .prog-row16 a {
+        padding-left: 30px;
+    }
+}
