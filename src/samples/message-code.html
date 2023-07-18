@@ -29,8 +29,6 @@
             <a href="#" class="menu-item active" onclick="setActive(this)">
                 DESCRIPTION</a>
             <a href="#section-projet-schema" class="menu-item" onclick="setActive(this)">SCHEMA</a>
-            <a href="#section-projet-circuits-electriques" class="menu-item" onclick="setActive(this)">CIRCUITS
-                ELECTRONIQUES</a>
             <a href="#section-projet-quantification" class="menu-item" onclick="setActive(this)">QUANTIFICATION</a>
             <a href="#section-projet-programme1" class="menu-item" onclick="setActive(this)">PROGRAMME 1</a>
             <a href="#section-projet-programme2" class="menu-item" onclick="setActive(this)">PROGRAMME 2</a>
@@ -218,6 +216,134 @@
                     <blockquote><blockquote>message_input_encode.append(-1) </blockquote></blockquote><br>
                 
                 print(message_input_encode)
+            </code>
+
+            <h3>Modulation ASK</h3>
+            <code>
+                <pre>M = message_input_encode           #Message binaire M <br>Fe = 44100                         #Fréquence d'échantillonnage <br><br>baud = 16                          #Débit souhaité sur le canal de transmission exprimé en bit/s <br>Nbits = len(M)                     #Nombre de bits initial (taille du message M) <br>Ns = int(Fe/baud)                  #Nombre de symboles par bit (Fréquence d'échantillonnage / Débit binaire) <br>N = int(Nbits * Ns)                #Nombre de bits total à moduler (Nombre initial de bits * Nombre de symbole par bit) <br>print(Nbits) <br>print(N)</pre>
+            </code>
+
+            <p>
+                Une fois les variables définies et initialisées, on peut rentrer dans la véritable fonction de
+                modulation.
+            </p>
+            <code>
+                m_encode_ASK = np.repeat(M, Ns) <br>
+                #On peut aussi le faire avec la fonction tile de numpy : binaire = np.tile(bits,(1,Ns)) <br><br>
+
+                #On génère le vecteur temps <br>
+                t = np.linspace(0.0, N/Fe, N) <br>
+                #On peut aussi le générer avec la commande arange : t = np.arange(0.0,N)/Fe <br><br>
+
+                #On génère la porteuse P(t) <br>
+                Ap = 1 <br>
+                Fp = 2050 <br>
+                Porteuse = Ap*np.sin(2*np.pi*Fp*t) <br><br>
+
+                #On réalise la modulation en ampliture (ASK = porteuse * binaire) <br>
+                ASK = m_encode_ASK*Porteuse <br><br>
+
+                print(len(ASK)) <br><br>    
+
+                #Affichage du message binaire, la porteuse, et le résultat de la modulation ASK <br>
+                plt.figure(figsize = (10,6)) <br> 
+                plt.plot(t, m_encode_ASK, 'black') <br>
+                plt.xlabel('Temps [s]') <br>
+                plt.title('Message binaire') <br> <br>
+
+                plt.figure(figsize = (10,6)) <br>
+                plt.plot(t, Porteuse, 'blue') <br>
+                plt.xlabel('Temps [s]') <br>
+                plt.title('Porteuse P(t)') <br> <br>
+
+                plt.figure(figsize = (10,6)) <br>
+                plt.plot(t, ASK, 'red') <br>
+                plt.xlabel('Temps [s]') <br>
+                plt.title('Modulation ASK') <br> <br>
+
+                plt.show()
+            </code>
+        </section>
+
+        <section id="section-projet-programme2">
+            <h1>PROGRAMME DE L'ORDINATEUR RECEPTEUR</h1>
+            <h3>Demodulation ASK</h3>
+            <code>
+                #temps pour un symbole <br>
+                t = np.arange(0.0,N)/Fe <br><br>
+
+                #Porteuse <br>
+                Porteuse = np.sin(2*np.pi*Fp*t) <br><br>
+
+                #Multiplier le signal modulé par la porteuse <br>
+                Produit = ASK*Porteuse <br><br>
+
+                print(len(Produit)) <br><br>
+
+                #Intégration dans le résultat Démod sur la période de T = [0, Ns], Ns: taille du symbole par la méthode des Trapèzes <br><br>
+                
+                #Résultat de l'intégration <br>
+                y = [] <br> <br>
+
+                for i in range(0,N,Ns):
+                <blockquote>y.append(np.trapz(Produit[i:i+Ns],t[i:i+Ns]))</blockquote> <br>
+
+                print(len(y)) <br>
+                print(y)
+            </code>
+
+            <h3>La comparaison</h3>
+            <code>
+                #Si y > 0 donc on a reçu 1 sinon c'est -1 <br>
+                message_demodule = np.array(y) >= 0 <br>
+                #Renvoie true si c'est supérieur à 0 sinon false <br>
+                print(len(message_demodule)) <br>
+                message_demodule_ASK = [] <br><br>
+
+                for ii in range(0, len(message_demodule)):
+                <blockquote>if message_demodule[ii] == False:</blockquote>
+                <blockquote><blockquote>message_demodule_ASK.append(-1)</blockquote></blockquote>
+                <blockquote>if message_demodule[ii] == True:</blockquote>
+                <blockquote><blockquote>message_demodule_ASK.append(1)</blockquote></blockquote>
+                print(message_demodule_ASK)
+            </code>
+
+            <h3>Decodage NRZ unipolaire</h3>
+            <code>
+                #Conversion binaire en string (char) <br>
+                #On remet le message en suite de 0 et de 1 <br><br>
+
+                message_demodule =  [] <br><br>
+
+                #Boucle for parcourant le message démodulé par pas de 2 <br>
+                for i in range(0, len(message_demodule_ASK)):
+                <blockquote>if message_demodule_ASK[i] == 1:</blockquote>
+                <blockquote><blockquote>message_demodule.append(1)</blockquote></blockquote>
+                <blockquote>elif message_demodule_ASK[i] == -1:</blockquote>
+                <blockquote><blockquote>message_demodule.append(0)</blockquote></blockquote>
+                print(len(message_demodule)) <br>
+                print(message_demodule)
+            </code>
+
+            <h3>Retirer la trame</h3>
+            <code>
+                ##del message_demodule[0:32] 
+                ##del message_demodule[-8]
+            </code>
+
+            <h3>Binaire vers ASCII</h3>
+            <code>
+                #Ecrire la suite binaire du message dans une chaîne de caractères (char) <br>
+                print(message_demodule) <br>
+                bytes_lst = [] <br>
+                for byte in [message_demodule[i:i+8] for i in range(0, len(message_demodule), 8)];
+                <blockquote>bytes_lst.append(''.join([str(elem) for elem in byte]))</blockquote>
+                data_reçu = ''.join([chr(int(byte, 2)) for byte in bytes_lst]) <br><br>
+
+                print("Le message reçu comporte", len(bytes_lst),'caractères.') <br><br>
+
+                #Affichage du résultat <br>
+                print("Le message reçu est : ", data_reçu)
             </code>
         </section>
     </main>
