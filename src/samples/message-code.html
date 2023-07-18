@@ -28,12 +28,12 @@
         <div class="items-sticky">
             <a href="#" class="menu-item active" onclick="setActive(this)">
                 DESCRIPTION</a>
-            <a href="#section-projet-circuits-logiques" class="menu-item" onclick="setActive(this)">CIRCUITS
-                LOGIQUES</a>
+            <a href="#section-projet-schema" class="menu-item" onclick="setActive(this)">SCHEMA</a>
             <a href="#section-projet-circuits-electriques" class="menu-item" onclick="setActive(this)">CIRCUITS
                 ELECTRONIQUES</a>
-            <a href="#section-projet-algorithmes" class="menu-item" onclick="setActive(this)">LOGIGRAMMES</a>
-            <a href="#section-projet-programme" class="menu-item" onclick="setActive(this)">PROGRAMME</a>
+            <a href="#section-projet-quantification" class="menu-item" onclick="setActive(this)">QUANTIFICATION</a>
+            <a href="#section-projet-programme1" class="menu-item" onclick="setActive(this)">PROGRAMME 1</a>
+            <a href="#section-projet-programme2" class="menu-item" onclick="setActive(this)">PROGRAMME 2</a>
             <a href="#lien-code-source" class="menu-item" onclick="setActive(this)">LIENS</a>
         </div>
 
@@ -46,9 +46,182 @@
     </header>
 
     <main>
-        
+        <section id="section-projet-description">
+            <img src="../img/signal.jfif" alt="Signaux sinudoïdales">
+
+            <div class="text-projet">
+                <h1>Message codé</h1>
+                <h3>Python & Jupyter - 2021</h3>
+                <p>
+                    Nous sommes au département Recherche et Développement de l'agence AIL3C. L'agence a localisé la plus
+                    grande organisation de cyberpirates du web. Cette organisation opère depuis une base secrète
+                    localisée dans une giganteste chaîne de montagne.
+                </p>
+                <p>
+                    L'agent K57 a réussi à s'introduire dans cette organisation malheureusement, il s'est retrouvé dans
+                    une salle de conférence qui ne laissait passer aucunes ondes.
+                </p>
+                <p>
+                    L'objectif est de trouver une solution qui aurait pu sauver l'agent K57. Soit trouver un moyen de
+                    communication entre un homme bloqué dans une salle pourvue d'ondes et un autre chargé de récupérer
+                    cette communication afin de pouvoir l'aider.
+                </p>
+            </div>
+        </section>
+
+        <section id="section-projet-schema">
+            <h1>SCHEMA DE LA SEQUENCE DE TRANSMISSION</h1>
+            <p>
+                Ce schéma permet d'imager la transmission entre l'agent qui est dans la salle de réunion et l'agent qui
+                doit réceptionner le message. Cette partie permettra de comprendre plus facilement le programme et
+                pourquoi il a été construit de cette façon.
+            </p>
+
+            <h3>L'expediteur</h3>
+            <p>
+                L'expéditeur doit enregistrer son message dans le PAD puis l'envoyer. Un PAD est un traitement de texte
+                collaboratif en ligne. Il permet à un groupe de personnes de partager simultanément un texte en cours
+                d'élaboration.
+            </p>
+
+            <h3>Le PAD</h3>
+            <p>
+                Le PAD permet de coder et modulé le message. Nous choisirons donc d'envoyer un texte simple avec un
+                encodage NRZ unipolaire et une modulation ASK. Il permettra le changement du numérique en
+                analogique et aussi le changement du message fait de caractères en binaire. Il générera la trame.
+            </p>
+
+            <h3>Le micro</h3>
+            <p>
+                Le micro, lui, permettra d'enregistrer le signal sortant du PAD. Le micro enverra ensuite le signal sur
+                le réseau de la base secrète et transformera donc le signal analogique en numérique.
+            </p>
+
+            <h3>Le reseau</h3>
+            <p>
+                Le réseau nous permettra l'envoie de l'information pour que l'agent chargé de l'écoute réceptionne le
+                message envoyé.
+            </p>
+
+            <h3>L'ordinateur d'écoute</h3>
+            <p>
+                L'ordinateur chargé de l'écoute doit réceptionner le signal envoyer par l'agent, le démoduler en
+                fonction de la modulation et la même chose avec l'encodage et le décodage. Il devra utiliser une table
+                d'ASCII pour passer le message binaire en caractère.
+            </p>
+
+            <h3>L'opérateur AIL3C</h3>
+            <p>
+                L'opérateur devra lire le message et transmettre les données à l'agent présent à l'agence pour l'aider.
+            </p>
+
+        </section>
+
+
+        <section id="section-projet-quantification">
+            <h1>QUANTIFICATION DES DONNEES</h1>
+            <p>
+                Nous avons choisi une fréquence de 22 050Hz car elle n'est pas audible par l'oreille humaine afin de
+                rester discret dans l'organisation ennemie. Donc avec le théorème de Nyquist-Shannon, on trouve une
+                fréquence d'échantillonnage de 44 100Hz.
+            </p>
+            <p>
+                Le type de modulation est une modulation ASK (Amplitude-Shift Keying) qui impactera l'amplitude de notre
+                signal.
+            </p>
+            <p>
+                Nous choisissons l'encodage NRZ unipolaire car c'est celui qui nous était le plus familier lors
+                de la création de ce projet.
+            </p>
+            <p>
+                Le type de communication sera asynchrone parce que ceci apporte une flexibilité, un meilleur contrôle de
+                temps et une possibilité de réponse.
+            </p>
+            <p>
+                Nous options pour un cas de trame PPP sur HDLC, dans cette configuration, une trame PPP est une trame
+                HDLC à laquelle a été ajoutée un protocole servant à l'encapsulation des couches supérieures. L'avantage
+                de cette configuration est qu'elle ne comporte pas de limite de stockage donc même un fichier volumineux
+                pourra s'envoyer facilement et en une seule fois, seulement, le temps d'envoie sera un peu plus long
+                qu'avec un fichier de taille habituelle.
+            </p>
+        </section>
+
+        <section id="section-projet-programme1">
+            <h1>PROGRAMME DE L'ORDINATEUR DE L'AGENT</h1>
+            <h3>Initialisation des fonctions</h3>
+            <code>
+                import matplotlib.pyplot as plt <br>
+                import numpy as np <br>
+                %matplotlib inline <br>
+                from numpy import genfromtxt
+            </code>
+
+            <h3>ASCII vers binaire</h3>
+            <code>
+                #Entrée du message à envoyer <br>
+                message_input = input(str("Entrez le message à transmettre : ")) <br><br>
+
+                #Fonction de conversion d'un string en binaire <br>
+                message_input_bin = [int(bit) for bit in ''.join(format(ord(char), 'b').zfill(0) for char in message_input)] <br>
+                print(message_input_bin) <br>
+                print(len(message_input_bin))
+            </code>
+
+            <h3>Création de la trame</h3>
+            <code>
+                #Déclaration de la liste correspondant à la trame <br>
+                ##trame_ppp = [] <br> <br>
+
+                #Initialisation des listes correspondant aux éléments de la trame <br>
+                ##fanion = [0,1,1,1,1,1,1,0] <br>
+                ##adresse_D = [1,1,1,1,1,1,1,1] <br>
+                ##control = [0,0,0,0,0,0,1,1] <br>
+                ##protocol = [0,0,0,0,0,0,0,0] <br><br>
+
+                ##CRC = [] <br><br>
+
+                #Injection dans l'odre des éléments de la trame avant les données dans la trame <br>
+                ##trame_ppp.extend(fanion) <br>
+                ##trame_ppp.extend(adresse_D) <br>
+                ##trame_ppp.extend(control) <br>
+                ##trame_ppp.extend(protocol) <br> <br>
+
+                #Affichage de la taille des éléments avant données <br>
+                ##print("La taille de la trame avec les données est de ", len(trame_ppp), "bits.") <br><br>
+
+                #Injection des données dans la trame <br>
+                ##print(message_input_bin) <br>
+                ##trame_ppp.extend(message_input_bin) <br><br>
+
+                #Affichage de la taille des éléments avec données + données <br>
+                ##print("La taille de la trame complète (avec données incluses) est de ", len(trame_structure), "bits.") <br><br>
+
+                # Injection dans l'ordre des élements de la trame après les données dans la trame <br>
+                ##trame_structure.extend(CRC) Non ajouté car le programme pour créer le CRC n'est pas fonctionnelle <br>
+                ##trame_structure.extend(fanion) <br><br>
+                                
+                # affichage de la taille de la trame entière <br>
+                ##print("La taille de la trame est de ",len(trame_ppp),"bits.") <br><br>
+                                
+                # Affichache de la trame <br>
+                ##print("La trame finale à encoder est donc :",trame_ppp) <br>
+            </code>
+
+            <h3>Encodage NRZ</h3>
+            <code>
+                message_input_encode = [] <br><br>
+
+                for i in range(0, len(message_input_bin)) : <br>
+                    <blockquote>message_input_bin[i] == 1: </blockquote>
+                    <blockquote><blockquote>message_input_encode.append(1) </blockquote></blockquote>
+                    <blockquote>elif message_input_bin[i] == 0: </blockquote>
+                    <blockquote><blockquote>message_input_encode.append(-1) </blockquote></blockquote><br>
+                
+                print(message_input_encode)
+            </code>
+        </section>
     </main>
-    
+
     <script src="../script/script.js"></script>
 </body>
 
