@@ -693,3 +693,23 @@ section#section-projet-circuits-electriques {
     width: 100%;
     color: var(--color-brun);
 }
+
+.code-source {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code-source img {
+    width: 100px;
+    height: 100px;
+}
+
+.code-source a {
+    padding-left: 50px;
+    text-decoration: none;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
+    font-size: 20px;
+}
