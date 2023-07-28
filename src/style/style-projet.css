@@ -554,3 +554,142 @@ section#section-projet-circuits-electriques {
     padding-top: 30px;
     border-top: 1px dashed var(--color-brun);
 }
+
+/**************************MESSAGE CODE***********************/
+
+/*#section-projet-schema h4 {
+    font-family: 'qeinsha';
+    color: var(--color-brun);
+    font-size: 25px;
+    margin-left: 6%;
+    margin-bottom: 30px;
+    margin-top: 50px;
+} */
+
+#section-projet-schema h3 {
+    font-family: 'cremona';
+    color: var(--color-brun);
+    font-size: 30px;
+    margin-left: 10%;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+#section-projet-schema h1 {
+    font-size: 48px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+#section-projet-schema p {
+    width: 65%;
+    font-size: 16px;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
+    margin: 0 auto;
+}
+
+#section-projet-quantification h3 {
+    font-family: 'cremona';
+    color: var(--color-brun);
+    font-size: 30px;
+    margin-left: 10%;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+#section-projet-quantification h1 {
+    font-size: 48px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+#section-projet-quantification p {
+    width: 65%;
+    font-size: 16px;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
+    margin: 20px auto;
+}
+
+#section-projet-programme1 h3 {
+    font-family: 'cremona';
+    color: var(--color-brun);
+    font-size: 30px;
+    margin-left: 10%;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+#section-projet-programme1 h1 {
+    font-size: 48px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+#section-projet-programme1 p {
+    width: 65%;
+    font-size: 16px;
+    color: var(--color-mid);
+    font-family: 'nunito';
+    text-align: justify;
+    margin: 20px auto;
+}
+
+#section-projet-programme1 code {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-brun);
+}
+
+#section-projet-programme2 h3 {
+    font-family: 'cremona';
+    color: var(--color-brun);
+    font-size: 30px;
+    margin-left: 10%;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+#section-projet-programme2 h1 {
+    font-size: 48px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+#section-projet-programme2 p {
+    width: 65%;
+    font-size: 16px;
+    color: var(--color-mid);
+    font-family: 'nunito';
+    text-align: justify;
+    margin: 20px auto;
+}
+
+#section-projet-programme2 code {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-brun);
+}

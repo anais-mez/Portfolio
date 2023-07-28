@@ -89,6 +89,63 @@
         font-size: 20px;
     }
 
+    #section-projet-schema h1 {
+        font-size: 42px !important;
+    }
+
+    #section-projet-schema h3 {
+        font-size: 25px;
+    }
+
+    #section-projet-schema p {
+        font-size: 18px;
+    }
+
+    #img_message_code {
+        width: 500px !important;
+        margin: 0 !important;
+    }
+
+    #section-projet-quantification h1 {
+        font-size: 42px !important; 
+    }
+
+    #section-projet-quantification p {
+        font-size: 18px;
+    }
+
+    #section-projet-programme1 h1 {
+        font-size: 42px !important;
+    }
+
+    #section-projet-programme1 h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-programme1 p {
+        font-size: 18px;
+    }
+    
+    #section-projet-programme1 code {
+        font-size: 15px;
+    }
+
+    #section-projet-programme2 h1 {
+        font-size: 42px !important;
+    }
+
+    #section-projet-programme2 h3 {
+        font-size: 25px;
+    }
+    
+    #section-projet-programme2 code {
+        font-size: 15px;
+    }
+
+    #section-projet-circuits-schema h3 {
+        font-size: 25px;
+    }
+
     .text-circuits-logiques .row {
         display: flex;
         flex-direction: column;

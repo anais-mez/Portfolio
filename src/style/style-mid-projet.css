@@ -238,3 +238,23 @@
         width: 90%;
     }
 }
+
+@media screen and (max-width: 960px) {
+    #img_message_code {
+        max-width: 414px;
+    }
+
+    #section-projet-description p {
+        text-align: left;
+    }
+
+    pre {
+        width: 80%;
+        overflow: hidden;
+    }
+
+    code {
+        width: 95%;
+        overflow: hidden;
+    }
+}
