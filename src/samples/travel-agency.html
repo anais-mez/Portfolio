@@ -46,7 +46,7 @@
 
     <main>
         <section id="section-projet-description">
-            <img src="../img/bdd-description.jfif" alt="Porte de banque">
+            <img src="../img/bdd-description.jfif" alt="Porte de banque" id="img_travel_agency">
 
             <div class="text-projet">
                 <h1>Travel agency</h1>
@@ -79,8 +79,10 @@
                 <li>Une adresse de facturation</li>
                 <li>Une adresse de livraison</li>
             </ul>
-            Bien sûr, chaque adresse comporte un numéro de voie, un nom de rue, parfois un nom de résidence, un nom de
-            bâtiment, un étage, un appartement, et un code postal et un nom de ville.
+            <p>
+                Bien sûr, chaque adresse comporte un numéro de voie, un nom de rue, parfois un nom de résidence, un nom
+                de bâtiment, un étage, un appartement, et un code postal et un nom de ville.
+            </p>
             </p>
             <p>
                 Chaque membre du personnel possède également un certain nombre d'informations :
@@ -328,143 +330,162 @@
                 INNER JOIN length ON ticket_length.Id_length_Length = length.Id_length; <br>
             </code>
             <img src="../img/query3.png" alt="troisième requête">
-        </section>
 
 
-        <h3>Les villes les plus populaires</h3>
-        <p>
-            J'ai commencé par faire les requêtes qui se trouvent à l'intérieur du premier FROM. Commençons par celle qui
-            va de la ligne 3 à la ligne 9 : <br>
-            Cette requête se projette sur la colonne City_2 qui est la ville d'arrivée d'un voyage longue distance que
-            je renomme City. Les sélections servent simplement à relier nos tables et à éviter les doublons. À partir
-            des liens entre mes tables Ticket, Length et Ticket_length, je compte le nombre de fois où chaque ville
-            apparaît en fonction des voyages commandés par les clients, ce qui est appelé x_2. Je l'appelle ensuite t2
-            pour me faciliter la tâche par la suite. <br> <br>
-            Je passe ensuite à la requête de la ligne 3 à 9 : <br>
-            Cette requête suit le même principe que la première. Elle est projetée sur la colonne Ville_1 qui est la
-            ville de départ d'un voyage interurbain que je renomme Ville. Les sélections sont toujours utilisées pour
-            lier nos tables, en évitant les doublons. A partir des liens entre mes tables Ticket, Length et
-            Ticket_length, je compte le nombre de fois où chaque ville apparaît en fonction des voyages commandés par
-            les clients, ce qui est nommé x_1. Je l'appelle ensuite t1 pour me faciliter la tâche par la suite.
-            Maintenant que les requêtes à l'intérieur du FROM sont définies, je peux construire ma requête principale.
-            Je projette City dans la sous-requête t1, puis j'ajoute mes résultats x_1 et x_2. J'utilise ensuite une
-            sélection pour dire que la ville dans la table t1 résultante est la même que dans la table t2. Je regroupe
-            ensuite les villes de la table t1.
-        </p>
-        <code>
-            SELECT t1.City, (x_1 + x_2) <br>
-            FROM ( <br>
-            SELECT t.City_2 AS City, count(t.City_2) AS x_2 <br>
-            FROM ( <br>
-            SELECT length.City_2 <br>
-            FROM ticket, length, ticket_length <br>
-            WHERE ticket.Id_ticket = ticket_length.Id_ticket_Ticket <br>
-            AND length.Id_length = ticket_length.Id_length_Length) <br>
-            GROUP BY City_2) AS t2, <br>
-            (SELECT t.City_1 AS City, count(t.City_1) AS x_1 <br>
-            FROM ( <br>
-            SELECT length.City_1 <br>
-            FROM ticket, length, ticket_length <br>
-            WHERE ticket.Id_ticket = ticket_length.Id_ticket_Ticket <br>
-            AND length.Id_length = ticket_length.Id_length_Length) <br>
-            GROUP BY City_1) AS t1 <br>
-            WHERE t1.City = t2.City <br>
-            GROUP BY t1.City;
-        </code>
-        <figure>
-            <img src="../img/query4-1.png" alt="Troisième requête, partie 1">
-            <figcaption>Tableau des résultats de la sous-requpete t2 dans la quatrième requête</figcaption>
-        </figure>
-        <figure>
-            <img src="../img/query4-2.png" alt="Troisième requête, partie 2">
-            <figcaption>Tableau des résultats de la sous-requpete t1 dans la quatrième requête</figcaption>
-        </figure>
-        <figure>
-            <img src="../img/query4.png" alt="Troisième requête">
-            <figcaption>Tableau des résultats de la quatrième requête</figcaption>
-        </figure>
 
-        <h3>Le pourcentage de deplacements interurbains et intra-urbains</h3>
-        <p>
-            Pour cela je calcule à l'aide de l'agrégat count(DISTINCT length.Id_length)mon nombre d'Id_length qui
-            représente mon nombre de voyages interurbains, le distinct est utilisé pour sélectionner tous les id_lenght
-            qui n'ont pas la même valeur. Ensuite, j'effectue une addition entre deux fonctions agrégées count() qui
-            représente l'addition de mes déplacements intra/interurbains. <br>
-            Enfin, je divise mon premier count() par l'addition des deux autres count(). <br>
-            Les différentes jointures internes sont là pour relier toutes les tables nécessaires au calcul.
-        </p>
-        <code>
-            SELECT (count(DISTINCT length.Id_length) / (count(DISTINCT length.Id_length) + count(DISTINCT way_point.Id_w))*100) AS "pourcentage inter", <br>
-            (count(DISTINCT way_point.ID_w) / (count(DISTINCT length.Id_length) + count(DISTINCT way_point.Id_way))*100) AS "pourcentage intra" <br>
-            FROM length <br>
-            INNER JOIN trip_length ON length.Id_length = trip_length.Id_length_Length <br>
-            INNER JOIN trip ON trip.Id_trip = trip_length.Id_trip_Trip <br>
-            INNER JOIN trip_way_point ON trip_way_point.Id_w_Way_point = way_point.Id_w; <br>
-        </code>
-        <img src="../img/query5.png" alt="Cinquième requête">
+            <h3>Les villes les plus populaires</h3>
+            <p>
+                J'ai commencé par faire les requêtes qui se trouvent à l'intérieur du premier FROM. Commençons par celle
+                qui
+                va de la ligne 3 à la ligne 9 : <br>
+                Cette requête se projette sur la colonne City_2 qui est la ville d'arrivée d'un voyage longue distance
+                que
+                je renomme City. Les sélections servent simplement à relier nos tables et à éviter les doublons. À
+                partir
+                des liens entre mes tables Ticket, Length et Ticket_length, je compte le nombre de fois où chaque ville
+                apparaît en fonction des voyages commandés par les clients, ce qui est appelé x_2. Je l'appelle ensuite
+                t2
+                pour me faciliter la tâche par la suite. <br> <br>
+                Je passe ensuite à la requête de la ligne 3 à 9 : <br>
+                Cette requête suit le même principe que la première. Elle est projetée sur la colonne Ville_1 qui est la
+                ville de départ d'un voyage interurbain que je renomme Ville. Les sélections sont toujours utilisées
+                pour
+                lier nos tables, en évitant les doublons. A partir des liens entre mes tables Ticket, Length et
+                Ticket_length, je compte le nombre de fois où chaque ville apparaît en fonction des voyages commandés
+                par
+                les clients, ce qui est nommé x_1. Je l'appelle ensuite t1 pour me faciliter la tâche par la suite.
+                Maintenant que les requêtes à l'intérieur du FROM sont définies, je peux construire ma requête
+                principale.
+                Je projette City dans la sous-requête t1, puis j'ajoute mes résultats x_1 et x_2. J'utilise ensuite une
+                sélection pour dire que la ville dans la table t1 résultante est la même que dans la table t2. Je
+                regroupe
+                ensuite les villes de la table t1.
+            </p>
+            <code>
+                SELECT t1.City, (x_1 + x_2) <br>
+                FROM ( <br>
+                SELECT t.City_2 AS City, count(t.City_2) AS x_2 <br>
+                FROM ( <br>
+                SELECT length.City_2 <br>
+                FROM ticket, length, ticket_length <br>
+                WHERE ticket.Id_ticket = ticket_length.Id_ticket_Ticket <br>
+                AND length.Id_length = ticket_length.Id_length_Length) <br>
+                GROUP BY City_2) AS t2, <br>
+                (SELECT t.City_1 AS City, count(t.City_1) AS x_1 <br>
+                FROM ( <br>
+                SELECT length.City_1 <br>
+                FROM ticket, length, ticket_length <br>
+                WHERE ticket.Id_ticket = ticket_length.Id_ticket_Ticket <br>
+                AND length.Id_length = ticket_length.Id_length_Length) <br>
+                GROUP BY City_1) AS t1 <br>
+                WHERE t1.City = t2.City <br>
+                GROUP BY t1.City;
+            </code>
 
+            <section id="img">
+                <figure>
+                    <img src="../img/query4-1.png" alt="Troisième requête, partie 1">
+                    <figcaption>Tableau des résultats de la sous-requpete t2 dans la quatrième requête</figcaption>
+                </figure>
+                <figure>
+                    <img src="../img/query4-2.png" alt="Troisième requête, partie 2">
+                    <figcaption>Tableau des résultats de la sous-requpete t1 dans la quatrième requête</figcaption>
+                </figure>
+                <figure>
+                    <img src="../img/query4.png" alt="Troisième requête">
+                    <figcaption>Tableau des résultats de la quatrième requête</figcaption>
+                </figure>
+            </section>
 
-        <h3>Le nombre de voyages utilisant l'avion</h3>
-        <p>
-            Nous comptons le nombre d'identifiants de voyage et le renommons trip_number. <br>
-            Nous joignons ensuite la table trip à la table transport, en passant par la table trip_transport, pour
-            finalement filtrer le type de transport par Plane.
-        </p>
-        <code>
-            SELECT count(Id_trip) AS Trip_number FROM Trip <br>
-            INNER JOIN trip_transport ON trip.Id_trip = trip_transport.Id_trip_Trip <br>
-            INNER JOIN transport ON trip_transport.Id_t_transport = transport.Id_t <br>
-            WHERE Type_t = 'Plane'; <br>
-        </code>
-        <img src="../img/query6.png" alt="Sixième requête">
+            <h3>Le pourcentage de deplacements interurbains et intra-urbains</h3>
+            <p>
+                Pour cela je calcule à l'aide de l'agrégat count(DISTINCT length.Id_length)mon nombre d'Id_length qui
+                représente mon nombre de voyages interurbains, le distinct est utilisé pour sélectionner tous les
+                id_lenght
+                qui n'ont pas la même valeur. Ensuite, j'effectue une addition entre deux fonctions agrégées count() qui
+                représente l'addition de mes déplacements intra/interurbains. <br>
+                Enfin, je divise mon premier count() par l'addition des deux autres count(). <br>
+                Les différentes jointures internes sont là pour relier toutes les tables nécessaires au calcul.
+            </p>
+            <code>
+                SELECT (count(DISTINCT length.Id_length) / (count(DISTINCT length.Id_length) + count(DISTINCT way_point.Id_w))*100) AS "pourcentage inter", <br>
+                (count(DISTINCT way_point.ID_w) / (count(DISTINCT length.Id_length) + count(DISTINCT way_point.Id_way))*100) AS "pourcentage intra" <br>
+                FROM length <br>
+                INNER JOIN trip_length ON length.Id_length = trip_length.Id_length_Length <br>
+                INNER JOIN trip ON trip.Id_trip = trip_length.Id_trip_Trip <br>
+                INNER JOIN trip_way_point ON trip_way_point.Id_w_Way_point = way_point.Id_w; <br>
+            </code>
+            <img src="../img/query5.png" alt="Cinquième requête">
 
 
-        <h3>Le nombre de voyages utilisant l'avion et le bus</h3>
-        <p>
-            Nous commençons par additionner, à l'aide de la fonction d'agrégation COUNT, tous les Id_trips. Nous
-            utilisons deux sous-requêtes pour spécifier la requête. Tout d'abord, je joins mes tables transport et
-            trip_transport, puis nous ajoutons la condition WHERE Type_t = 'Bus', car nous cherchons le noms de voyages
-            dont le type de transport est le bus. <br>
-            Enfin, grâce à la commande UNION ALL, car elle permet de tout ajouter, même les doublons, contrairement à la
-            fonction UNION. Nous ajoutons une deuxième requête, cette fois avec la condition WHERE Type_t = 'Plane'.
-            <br>
-        </p>
-        <code>
-            SELECT count(Id_trip) AS Trip_number <br>
-            FROM ( <br>
-            SELECT Id_trip FROM Trip <br>
-            INNER JOIN trip_transport ON trip.Id_trip = trip_transport.Id_trip_Trip <br>
-            INNER JOIN transport ON trip_transport.Id_t_Transport = transport.Id_t <br>
-            WHERE Type_t = 'Bus' <br>
-            UNION ALL <br>
-            SELECT Id_trip FROM Trip <br>
-            INNER JOIN trip_transport ON trip_transport.Id_t_transport = transport.Id_t <br>
-            WHERE Type_t = 'Plane') Trip; <br>
-        </code>
-        <img src="../img/query7.png" alt="Septième requête">
+            <h3>Le nombre de voyages utilisant l'avion</h3>
+            <p>
+                Nous comptons le nombre d'identifiants de voyage et le renommons trip_number. <br>
+                Nous joignons ensuite la table trip à la table transport, en passant par la table trip_transport, pour
+                finalement filtrer le type de transport par Plane.
+            </p>
+            <code>
+                SELECT count(Id_trip) AS Trip_number FROM Trip <br>
+                INNER JOIN trip_transport ON trip.Id_trip = trip_transport.Id_trip_Trip <br>
+                INNER JOIN transport ON trip_transport.Id_t_transport = transport.Id_t <br>
+                WHERE Type_t = 'Plane'; <br>
+            </code>
+            <img src="../img/query6.png" alt="Sixième requête">
 
 
-        <h3>Le moyen de transport le plus utilise au cours des 3 derniers mois</h3>
-        <p>
-            Nous utilisons la fonction agrégat max(Type_t). Celle-ci nous permet de retourner dans notre cas "le moyen
-            de transport le plus utilisé", la fonction agrégat max() recherche dans la table indiquée l'enregistrement
-            le plus renseigné dans cas "train", cependant nous avons une contrainte de temps pour cela, nous ajoutons
-            une condition en utilisant la fonction WHERE, pour ceci nous sélectionnons tous les voyages dont les dates
-            de fin sont inférieures aux dates de fin de voyage. Nous sélectionnons donc tous les voyages dont les dates
-            de fin de voyages sont inférieures à la date d'aujourd'hui moins 3 mois.
-        </p>
-        <code>
+            <h3>Le nombre de voyages utilisant l'avion et le bus</h3>
+            <p>
+                Nous commençons par additionner, à l'aide de la fonction d'agrégation COUNT, tous les Id_trips. Nous
+                utilisons deux sous-requêtes pour spécifier la requête. Tout d'abord, je joins mes tables transport et
+                trip_transport, puis nous ajoutons la condition WHERE Type_t = 'Bus', car nous cherchons le noms de
+                voyages
+                dont le type de transport est le bus. <br>
+                Enfin, grâce à la commande UNION ALL, car elle permet de tout ajouter, même les doublons, contrairement
+                à la
+                fonction UNION. Nous ajoutons une deuxième requête, cette fois avec la condition WHERE Type_t = 'Plane'.
+                <br>
+            </p>
+            <code>
+                SELECT count(Id_trip) AS Trip_number <br>
+                FROM ( <br>
+                SELECT Id_trip FROM Trip <br>
+                INNER JOIN trip_transport ON trip.Id_trip = trip_transport.Id_trip_Trip <br>
+                INNER JOIN transport ON trip_transport.Id_t_Transport = transport.Id_t <br>
+                WHERE Type_t = 'Bus' <br>
+                UNION ALL <br>
+                SELECT Id_trip FROM Trip <br>
+                INNER JOIN trip_transport ON trip_transport.Id_t_transport = transport.Id_t <br>
+                WHERE Type_t = 'Plane') Trip; <br>
+            </code>
+            <img src="../img/query7.png" alt="Septième requête">
+
+
+            <h3>Le moyen de transport le plus utilise au cours des 3 derniers mois</h3>
+            <p>
+                Nous utilisons la fonction agrégat max(Type_t). Celle-ci nous permet de retourner dans notre cas "le
+                moyen
+                de transport le plus utilisé", la fonction agrégat max() recherche dans la table indiquée
+                l'enregistrement
+                le plus renseigné dans cas "train", cependant nous avons une contrainte de temps pour cela, nous
+                ajoutons
+                une condition en utilisant la fonction WHERE, pour ceci nous sélectionnons tous les voyages dont les
+                dates
+                de fin sont inférieures aux dates de fin de voyage. Nous sélectionnons donc tous les voyages dont les
+                dates
+                de fin de voyages sont inférieures à la date d'aujourd'hui moins 3 mois.
+            </p>
+            <code>
             SELECT max(Type_t) <br>
             FROM Transport <br>
             INNER JOIN trip_transport ON transport.Id_t = trip_transport.Id_t_Transport <br>
             INNER JOIN trip ON trip_transport.Id_trip_Trip = trip.Id_trip <br>
             WHERE trip.End_date < Date_ADD(now(), INTERVAL - 3 MONTH); <br>
-        </code>
-        <img src="../img/query9.png" alt="Neuvième requête">
+            </code>
+            <img src="../img/query9.png" alt="Neuvième requête">
 
 
-        <h3>Le prix moyen des billets selon le transport</h3>
-        <code>
+            <h3>Le prix moyen des billets selon le transport</h3>
+            <code>
             SELECT t1.Average_bus, t2.Average_boat, t3.Average_Plane, t4.Average_train <br>
             FROM (SELECT DISTINCT COALESCE (ROUND(AVG(length*0.3),2),0) AS Average_bus <br>
             FROM transport <br>
@@ -475,20 +496,23 @@
             WHERE City_access = City_1 AND Type_t = 'Bus' <br>
             OR City_access = City_2 AND Type_t = 'Bus') AS t1 <br>
             JOIN <br>
-        </code>
-        <p>
-            Nous utilisons 4 fois le même formulaire, car nous cherchons le prix moyen des billets selon le transport.
-            Tout d'abord, nous sélectionnons les 4 transports, puis grâce à une sous-requête, nous calculons le prix
-            moyen grâce à AVG, la longueur x 0.3 que nous arrondissons à 2 décimales grâce à la fonction ROUND. <br>
-            L'utilisation de COALESCE retourne la première valeur non nulle d'une liste (transformer le non nul en 0).
-            Nous joignons ensuite les différentes tables, ici : trip_transport, trip, trip_length et length. <br>
-            Nous ajoutons enfin quelques conditions. Nous voulons que la ville de départ (City_1) corresponde à une
-            ville accessible par le moyen de transport, ici le bus, nous faison la même chose avec la vile d'arrivée
-            (City_2). <br>
-            Pour terminons, nous réalisons 3 autres sous-requêtes pour les moyens de transport : bateau, train et avion
-            que nous joignons à cette dernière.
-        </p>
-        <code>
+            </code>
+            <p>
+                Nous utilisons 4 fois le même formulaire, car nous cherchons le prix moyen des billets selon le
+                transport.
+                Tout d'abord, nous sélectionnons les 4 transports, puis grâce à une sous-requête, nous calculons le prix
+                moyen grâce à AVG, la longueur x 0.3 que nous arrondissons à 2 décimales grâce à la fonction ROUND. <br>
+                L'utilisation de COALESCE retourne la première valeur non nulle d'une liste (transformer le non nul en
+                0).
+                Nous joignons ensuite les différentes tables, ici : trip_transport, trip, trip_length et length. <br>
+                Nous ajoutons enfin quelques conditions. Nous voulons que la ville de départ (City_1) corresponde à une
+                ville accessible par le moyen de transport, ici le bus, nous faison la même chose avec la vile d'arrivée
+                (City_2). <br>
+                Pour terminons, nous réalisons 3 autres sous-requêtes pour les moyens de transport : bateau, train et
+                avion
+                que nous joignons à cette dernière.
+            </p>
+            <code>
             (SELECT DISTINCT COALESCE (ROUND(AVG(length*0.3),2),0) AS Average_boat <br>
             FROM transport <br>
             INNER JOIN trip_transport ON  trip_transport.Id_t_Transport = trip.Id_trip <br>
@@ -516,18 +540,20 @@
             WHERE City_access = City_1 AND Type_t = 'Train' <br>
             OR City_access = City_2 AND Type_t = 'Train') AS t4 <br>
             JOIN <br>
-        </code>
-        <img src="../img/query10.png" alt="Dixième requête">
+            </code>
+            <img src="../img/query10.png" alt="Dixième requête">
 
-        <h3>Le pourcentage de femme et d'homme</h3>
-        <p>
-            Nous divisons d'une part le nombre de voyageurs hommes et d'autre part le nombre de voyageurs femmes par le
-            nombre total de voyageurs. <br>
-            Pour obtenir ce résultat, nous joignons la table des voyageurs à la table des voyages, en passant par les
-            tables des clients et des clients_voyages, et nous filtrons enfin par homme ou femme.
-            Nous multiplions chaque résultat par 100 pour obtenir un pourcentage.
-        </p>
-        <code>
+            <h3>Le pourcentage de femme et d'homme</h3>
+            <p>
+                Nous divisons d'une part le nombre de voyageurs hommes et d'autre part le nombre de voyageurs femmes par
+                le
+                nombre total de voyageurs. <br>
+                Pour obtenir ce résultat, nous joignons la table des voyageurs à la table des voyages, en passant par
+                les
+                tables des clients et des clients_voyages, et nous filtrons enfin par homme ou femme.
+                Nous multiplions chaque résultat par 100 pour obtenir un pourcentage.
+            </p>
+            <code>
             SELECT (SELECT count(*) <br>
             FROM Travelers <br>
             WHERE travelers.gender = 'Man') / <br>
@@ -544,21 +570,24 @@
             INNER JOIN customers ON travelers.Id_c = customers.Id_c <br>
             INNER JOIN customers_trip ON customers.Id_c = customers_trip.Id_c_Customers <br>
             INNER JOIN trip ON customers_trip.Id_trip_trip = trip.Id_trip)*100 AS percentage_woman; <br>
-        </code>
-        <img src="../img/query11.png" alt="Onzième requête">
+            </code>
+            <img src="../img/query11.png" alt="Onzième requête">
 
 
-        <h3>Le nombre de seniors ayant voyages les 6 derniers mois</h3>
-        <p>
-            Nous avons défini un senior comme une personne âgée de 65 ans ou plus. <br>
-            À la ligne 12, nous effectuons une sélection sur les 6 derniers mois à partir d'aujourd'hui en toute
-            sécurité. Juste au-dessus, nos INNER JOINs nous permettent de relier les voyageurs, les clients, les voyages
-            et leurs tables de relations. Dans la projection, nous sélectionnons dans les 6 derniers mois de voyage les
-            clients ou voyageurs de plus de 65 ans que nous divisons par le nombre de voyageurs et/ou clients de plus de
-            65
-            ans dans les 6 derniers mois que nous multiplions par 100 pour calculer la moyenne.
-        </p>
-        <code>
+            <h3>Le nombre de seniors ayant voyages les 6 derniers mois</h3>
+            <p>
+                Nous avons défini un senior comme une personne âgée de 65 ans ou plus. <br>
+                À la ligne 12, nous effectuons une sélection sur les 6 derniers mois à partir d'aujourd'hui en toute
+                sécurité. Juste au-dessus, nos INNER JOINs nous permettent de relier les voyageurs, les clients, les
+                voyages
+                et leurs tables de relations. Dans la projection, nous sélectionnons dans les 6 derniers mois de voyage
+                les
+                clients ou voyageurs de plus de 65 ans que nous divisons par le nombre de voyageurs et/ou clients de
+                plus de
+                65
+                ans dans les 6 derniers mois que nous multiplions par 100 pour calculer la moyenne.
+            </p>
+            <code>
             SELECT ((sum(trip.End_date > Date_sub(now(), INTERVAL 6 MONTH) <br>
             AND travelers.Age < Date_sub(now(), INTERVAL 65 YEAR) <br>
             OR customers.Age < Date_sub(now(), INTERVAL + 65 YEAR)) / <br>
@@ -571,23 +600,28 @@
             INNER JOIN customers_trip ON customers.Id_c = customers_trip.Id_c_Customers <br>
             INNER JOIN trip ON customers_trip.Id_trip_trip = trip.Id_trip <br>
             WHERE trip.End_date > DATE_SUB(now(), INTERVAL 6 MONTH); <br>
-        </code>
-        <img src="../img/query12.png" alt="Douzième requête">
+            </code>
+            <img src="../img/query12.png" alt="Douzième requête">
 
 
-        <h3>Le nombre d'enfant ayant voyages les 6 derniers mois</h3>
-        <p>
-            Nous utilisons la fonction agrégat SUM, elle permet de faire la somme de tous les nombres présents dans la
-            colonne. Nous faisons d'abord une fonction permettant d'obtenir le nombre d'enfants ayant voyégé durant les
-            6 derniers mois, pour cela nous utilisons 'trip.End_date > date_sub(now(), AND travelers.Age > date_sub(now,
-            INTERVAL 18 YEAR) or customers.Age > date_sub(now(), INTERVAL 18 YEAR), INTERVAL 6 MONTH)' qui permet de
-            mettre un 1 lorsque la date remplit la condition et un 0 dans le cas contraire. <br>
-            Ensuite, avec la fonction SUM qui additionne tous les 1 et nous renvoie le nombre d'enfants ayant voyagé au
-            cours des 6 derniers mois, cependant nous cherchons une moyenne donc pour ceci nous calculons le nombre
-            total de voyageurs avec la fonction COUNT. Pour obtenir un pourcentage, nous multiplions le tout par 100 et
-            le renommons.
-        </p>
-        <code>
+            <h3>Le nombre d'enfant ayant voyages les 6 derniers mois</h3>
+            <p>
+                Nous utilisons la fonction agrégat SUM, elle permet de faire la somme de tous les nombres présents dans
+                la
+                colonne. Nous faisons d'abord une fonction permettant d'obtenir le nombre d'enfants ayant voyégé durant
+                les
+                6 derniers mois, pour cela nous utilisons 'trip.End_date > date_sub(now(), AND travelers.Age >
+                date_sub(now,
+                INTERVAL 18 YEAR) or customers.Age > date_sub(now(), INTERVAL 18 YEAR), INTERVAL 6 MONTH)' qui permet de
+                mettre un 1 lorsque la date remplit la condition et un 0 dans le cas contraire. <br>
+                Ensuite, avec la fonction SUM qui additionne tous les 1 et nous renvoie le nombre d'enfants ayant voyagé
+                au
+                cours des 6 derniers mois, cependant nous cherchons une moyenne donc pour ceci nous calculons le nombre
+                total de voyageurs avec la fonction COUNT. Pour obtenir un pourcentage, nous multiplions le tout par 100
+                et
+                le renommons.
+            </p>
+            <code>
             SELECT ((sum(trip.End_date > Date_sub(now(), INTERVAL 6 MONTH) <br>
             AND travelers.Age > Date_sub(now(), INTERVAL 18 YEAR) <br>
             OR customers.Age > Date_sub(now(), INTERVAL - 18 YEAR)) / <br>
@@ -600,16 +634,17 @@
             INNER JOIN customers_trip ON customers.Id_c = customers_trip.Id_c_Customers <br>
             INNER JOIN trip ON customers_trip.Id_trip_trip = trip.Id_trip <br>
         </code>
-        <img src="../img/query13.png" alt="Treizième requête">
+            <img src="../img/query13.png" alt="Treizième requête">
 
 
-        <h3>Le type de paiement le plus utilise</h3>
-        <p>
-            Nous sélectionnons le type de paiement et le nombre de tous les billets filtrés par un intervalle de dates
-            que nous fixons. <br>
-            Ensuite, nous utilisons HAVING et COUNT pour sélectionnner le type de paiement le plus utilisé.
-        </p>
-        <code>
+            <h3>Le type de paiement le plus utilise</h3>
+            <p>
+                Nous sélectionnons le type de paiement et le nombre de tous les billets filtrés par un intervalle de
+                dates
+                que nous fixons. <br>
+                Ensuite, nous utilisons HAVING et COUNT pour sélectionnner le type de paiement le plus utilisé.
+            </p>
+            <code>
             SELECT Payment_type, count(*) <br>
             FROM Ticket <br>
             WHERE Purchase_date BETWEEN '2021-01-01' AND now() <br>
@@ -618,38 +653,41 @@
             FROM Ticket <br>
             GROUP BY Payment_type); <br>
         </code>
-        <img src="../img/query14.png" alt="Quatorzième requête">
+            <img src="../img/query14.png" alt="Quatorzième requête">
 
 
-        <h3>L'employe le plus ancien</h3>
-        <p>
-            Nous affichons le nom, le prénom et la date d'embauche du personnel. <br>
-            Après avoir fait ceci, nous ajoutons ORDER BY qui nous permet de trier les lignes dans un résultat, en
-            ajoutant ASC pour ascendant (du plus petit au plus grand) de sorte que cela nous montrera l'employé le plus
-            ancien en premier.
-        </p>
-        <code>
+            <h3>L'employe le plus ancien</h3>
+            <p>
+                Nous affichons le nom, le prénom et la date d'embauche du personnel. <br>
+                Après avoir fait ceci, nous ajoutons ORDER BY qui nous permet de trier les lignes dans un résultat, en
+                ajoutant ASC pour ascendant (du plus petit au plus grand) de sorte que cela nous montrera l'employé le
+                plus
+                ancien en premier.
+            </p>
+            <code>
             SELECT Lastname_staff, Firstname_staff, Hiring_date <br>
             FROM Staff <br>
             ORDER BY Hiring_date ASC; <br>
         </code>
-        <img src="../img/query15.png" alt="Quinzième requête">
+            <img src="../img/query15.png" alt="Quinzième requête">
 
 
-        <h3>
-            Connaitre les differentes informations pour un voyage : Le numero du voyage, son prix, la date de depart, le
-            nombre de villes traversees
-        </h3>
-        <p>
-            Cette requête est assez conséquente, vous la trouverez donc en intégralité dans la partie des liens, je vais
-            vous expliquer ici, partie par partie, la requête entière ne servira qu'à joindre toutes les parties
-            décrites ici.
-        </p>
+            <h3>
+                Connaitre les differentes informations pour un voyage : Le numero du voyage, son prix, la date de
+                depart, le
+                nombre de villes traversees
+            </h3>
+            <p>
+                Cette requête est assez conséquente, vous la trouverez donc en intégralité dans la partie des liens, je
+                vais
+                vous expliquer ici, partie par partie, la requête entière ne servira qu'à joindre toutes les parties
+                décrites ici.
+            </p>
 
-        <p>
-            Cette première partie examine les villes de départ qui apparaissent dans le voyage 1.
-        </p>
-        <code>
+            <p>
+                Cette première partie examine les villes de départ qui apparaissent dans le voyage 1.
+            </p>
+            <code>
             SELECT DISTINCT trip.Id_trip, length.City_1 AS City <br>
             FROM way_point, length, trip, trip_way_point, trip_length <br>
             WHERE trip.Id_trip = trip_way_point.Id_trip_Trip <br>
@@ -659,13 +697,13 @@
             AND trip.Id_trip = 1 <br>
             GROUP BY length.City_1; <br>
         </code>
-        <img src="../img/query16-1.png" alt="Seizième requête, partie 1">
+            <img src="../img/query16-1.png" alt="Seizième requête, partie 1">
 
-        <p>
-            Cette requête est exactement la même que la précédente sauf que cette fois-ci nous recherchons dans les
-            villes d'arrivée.
-        </p>
-        <code>
+            <p>
+                Cette requête est exactement la même que la précédente sauf que cette fois-ci nous recherchons dans les
+                villes d'arrivée.
+            </p>
+            <code>
             SELECT DISTINCT trip.Id_trip, length.City_2 AS City <br>
             FROM way_point, length, trip, trip_way_point, trip_length <br>
             WHERE trip.Id_trip = trip_way_point.Id_trip_Trip <br>
@@ -675,13 +713,13 @@
             AND trip.Id_trip = 1 <br>
             GROUP BY length.City_2; <br>
         </code>
-        <img src="../img/query16-2.png" alt="Seizième requête, partie 2">
+            <img src="../img/query16-2.png" alt="Seizième requête, partie 2">
 
-        <p>
-            Cette demande sert à faire l'union entre la première demande intrroduite et la seconde. Sauf que cette
-            fois-ci, nous ne demandons plus seulement le voyage 1 mais tous les voyages.
-        </p>
-        <code>
+            <p>
+                Cette demande sert à faire l'union entre la première demande intrroduite et la seconde. Sauf que cette
+                fois-ci, nous ne demandons plus seulement le voyage 1 mais tous les voyages.
+            </p>
+            <code>
             SELECT * FROM <br>
             (SELECT DISTINCT trip.Id_trip, length.City_1 AS City <br>
             FROM way_point, length, trip, trip_way_point, trip_length <br>
@@ -701,60 +739,66 @@
             AND trip.Id_trip = 1 <br>
             GROUP BY length.City_2); <br>
         </code>
-        <img src="../img/query16-3.png" alt="Seizième requête, partie 3">
+            <img src="../img/query16-3.png" alt="Seizième requête, partie 3">
 
-        <p>
-            Pour continuer, nous allons prendre cette même requête mais l'ajouter au FROM, pour simplifier, nous allons
-            juste la renommer 'subquery_3' dans le code.
-        </p>
-        <code>
+            <p>
+                Pour continuer, nous allons prendre cette même requête mais l'ajouter au FROM, pour simplifier, nous
+                allons
+                juste la renommer 'subquery_3' dans le code.
+            </p>
+            <code>
             SELECT result.Id_trip, count(*) AS Number_city_per_trip <br>
             FROM (subquery_3) AS result <br>
             GROUP BY result.Id_trip <br>
         </code>
-        <img src="../img/query16-4.png" alt="Seizième requête, partie 4">
+            <img src="../img/query16-4.png" alt="Seizième requête, partie 4">
 
-        <p>
-            On nous demande également d'afficher la date de départ de chaque voyage. Cette requête est très simple, il
-            suffit de preojeter l'identifiant du voyage avec la date de départ dans le tableau des voayges.
-        </p>
-        <code>
+            <p>
+                On nous demande également d'afficher la date de départ de chaque voyage. Cette requête est très simple,
+                il
+                suffit de preojeter l'identifiant du voyage avec la date de départ dans le tableau des voayges.
+            </p>
+            <code>
             SELECT DISTINCT trip.Id_trip, trip.Strat_date <br>
             FROM Trip; <br>
         </code>
-        <img src="../img/query16-5.png" alt="Seizième requête, partie 5">
+            <img src="../img/query16-5.png" alt="Seizième requête, partie 5">
 
-        <p>
-            Cette requête relie les tableaux des trajets et des longueurs pour déterminer quelles longueurs se trouvent
-            dans quel trajet. Une fois ces longueurs trouvées, nous effectuons une projection afin de les multiplier par
-            0.3, qui est notre prix au kilomètre.
-        </p>
-        <code>
+            <p>
+                Cette requête relie les tableaux des trajets et des longueurs pour déterminer quelles longueurs se
+                trouvent
+                dans quel trajet. Une fois ces longueurs trouvées, nous effectuons une projection afin de les multiplier
+                par
+                0.3, qui est notre prix au kilomètre.
+            </p>
+            <code>
             SELECT DISTINCT trip.Id_trip, (length.Length * 0.3) AS l1 <br>
             FROM length, trip, trip_length <br>
             WHERE trip.Id_trip = trip_length.Id_trip_Trip <br>
             AND length.Id_length = trip_length.Id_length_Length; <br>
         </code>
-        <img src="../img/query16-6.png" alt="Seizième requête, partie 6">
+            <img src="../img/query16-6.png" alt="Seizième requête, partie 6">
 
-        <p>
-            Cette requête ne fait qu'afficher le tarif forfaitaire des déplacements intra-urbains pour les différents
-            trajets.
-        </p>
-        <code>
+            <p>
+                Cette requête ne fait qu'afficher le tarif forfaitaire des déplacements intra-urbains pour les
+                différents
+                trajets.
+            </p>
+            <code>
             SELECT DISTINCT trip.Id_trip, way_point.Flat_rate <br>
             FROM way_point, trip, trip_way_point <br>
             WHERE trip.Id_trip = trip_way_point.Id_trip_Trip <br>
             AND way_point.Id_w = trip_way_point.Id_w_Way_point; <br>
         </code>
-        <img src="../img/query16-7.png" alt="Seizième requête, partie 7">
+            <img src="../img/query16-7.png" alt="Seizième requête, partie 7">
 
-        <p>
-            Ce dernier est utilisé pour additionner toutes les longueurs calculées précédemment et ensuite ajouter tous
-            les forfaits correspondant au même trajet. Nous utilions ROUND pour arrondir au centième le plus proche.
-            Après celle-ci, il suffit de les additionner par UNION ou JOIN pour obtenir la requête complète.
-        </p>
-        <code>
+            <p>
+                Ce dernier est utilisé pour additionner toutes les longueurs calculées précédemment et ensuite ajouter
+                tous
+                les forfaits correspondant au même trajet. Nous utilions ROUND pour arrondir au centième le plus proche.
+                Après celle-ci, il suffit de les additionner par UNION ou JOIN pour obtenir la requête complète.
+            </p>
+            <code>
             SELECT t1.Id_trip, ROUND(SUM(t1.l1 + t2.Flat_rate),2) AS Price_per_trip <br>
             FROM (SELECT DISTINCT trip.Id_trip, (length.Length * 0.3) AS l1 <br>
             FROM length, trip, trip_length <br>
@@ -767,15 +811,19 @@
             WHERE t1.Id_trip = t2.Id_trip <br>
             GROUP BY t1.Id_trip; <br>
         </code>
-        <img src="../img/query16-8.png" alt="Seizième requête, partie 8">
-
+            <img src="../img/query16-8.png" alt="Seizième requête, partie 8">
         </section>
+
 
         <h3 id="code-source">Lien vers le code source</h3>
 
         <div class="code-source">
             <img src="../img/icon-github.png" alt="Github icon">
             <a href="https://github.com/anais-mez/">Projet travel agency</a>
+        </div>
+        <div class="code-source">
+            <img src="../img/icon-github.png" alt="Github icon">
+            <a href="https://github.com/anais-mez/">Les différentes requêtes</a>
         </div>
 
 

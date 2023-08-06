@@ -181,6 +181,104 @@
     }
 
     .code-source a {
+        font-size: 18px;
         padding-left: 30px;
+    }
+
+    .code-source img {
+        width: 80px;
+        height: 80px;
+    }
+
+    #img_travel_agency {
+        width: 350px !important;
+        margin: 0 !important;
+    }
+    
+    #script-bdd code,
+    #requetes code {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        color: var(--color-brun);
+    }
+    
+    #script-bdd h3,
+    #requetes h3,
+    h3 {
+        font-family: 'cremona';
+        color: var(--color-brun);
+        font-size: 27px;
+        margin-left: 6%;
+        margin-bottom: 60px;
+        margin-top: 80px;
+    }
+    
+    #reformulation-besoin h1,
+    #dictionnaire h1,
+    #mcd h1,
+    #mld h1,
+    #mpd h1,
+    #script-bdd h1,
+    #requetes h1 {
+        font-size: 40px;
+        margin-left: 3%;
+        margin-bottom: 30px;
+        margin-top: 50px;
+        font-family: 'qeinsha';
+        font-weight: lighter;
+        color: var(--color-brun);
+    }
+    
+    #reformulation-besoin p,
+    #reformulation-besoin ul,
+    #dictionnaire p,
+    #mcd p,
+    #mld p,
+    #mpd p,
+    #script-bdd p,
+    #requetes p {
+        width: 90%;
+        font-size: 16px;
+        color: var(--color-brun);
+        font-family: 'nunito';
+        text-align: justify;
+        margin: 20px auto;
+    }
+    
+    #requetes figure {
+        display: flex;
+        flex-flow: column;
+        margin: auto;
+        max-width: 180px;
+    }
+    
+    #requetes figcaption {
+        background-color: var(--color-mid);
+        color: var(--color-brun);
+        font: italic smaller sans-serif;
+        padding: 3px;
+        text-align: center;
+    }
+    
+    #requetes img {
+        display: flex;
+        margin: 30px auto 0;
+        max-width: 380px;
+    }
+    
+    #dictionnaire img {
+        display: flex;
+        margin: 30px auto 0;
+        max-width: 380px;
+    }
+    
+    #img {
+        margin: 30px auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }

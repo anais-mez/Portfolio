@@ -244,7 +244,7 @@ section#section-projet-circuits-electriques {
     margin-top: 50px;
 }
 
-#section-projet-algorithmes  {
+#section-projet-algorithmes {
     border-top: 1px dashed var(--color-brun);
     width: 80%;
     margin: 2% auto;
@@ -422,7 +422,7 @@ section#section-projet-circuits-electriques {
     width: 700px;
 }
 
-#section-projet-programme  {
+#section-projet-programme {
     border-top: 1px dashed var(--color-brun);
     width: 80%;
     margin: 2% auto;
@@ -490,7 +490,7 @@ section#section-projet-circuits-electriques {
 .prog-row8,
 .prog-row10,
 .prog-row12,
-.prog-row14  {
+.prog-row14 {
     width: 85%;
     display: flex;
     flex-direction: row-reverse;
@@ -712,4 +712,91 @@ section#section-projet-circuits-electriques {
     font-family: 'nunito';
     text-align: justify;
     font-size: 20px;
+}
+
+/**************************TRAVEL AGENCY***********************/
+
+#script-bdd code,
+#requetes code {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-brun);
+}
+
+#script-bdd h3,
+#requetes h3,
+h3 {
+    font-family: 'cremona';
+    color: var(--color-brun);
+    font-size: 30px;
+    margin-left: 10%;
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
+
+#reformulation-besoin h1,
+#dictionnaire h1,
+#mcd h1,
+#mld h1,
+#mpd h1,
+#script-bdd h1,
+#requetes h1 {
+    font-size: 48px;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'qeinsha';
+    font-weight: lighter;
+    color: var(--color-brun);
+}
+
+#reformulation-besoin p,
+#reformulation-besoin ul,
+#dictionnaire p,
+#mcd p,
+#mld p,
+#mpd p,
+#script-bdd p,
+#requetes p {
+    width: 97%;
+    font-size: 16px;
+    color: var(--color-brun);
+    font-family: 'nunito';
+    text-align: justify;
+    margin: 20px auto;
+}
+
+#requetes figure {
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    max-width: 180px;
+}
+
+#requetes figcaption {
+    background-color: var(--color-mid);
+    color: var(--color-brun);
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
+
+#requetes img {
+    display: flex;
+    margin: 30px auto 0;
+}
+
+#dictionnaire img {
+    display: flex;
+    margin: 30px auto 0;
+}
+
+#img {
+    margin: 30px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

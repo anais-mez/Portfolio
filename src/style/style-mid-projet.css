@@ -10,7 +10,7 @@
     #header-sticky .items-sticky {
         position: absolute;
         width: 80%;
-        min-height: 50vh;
+        min-height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,7 +23,7 @@
 
     #header-sticky .items-sticky.active {
         top: 0;
-        padding-top: 50px;
+        padding-top: 60px;
         background-color: var(--color-skin);
         border-bottom: 1px solid var(--color-brun);
     }
@@ -72,7 +72,7 @@
     }
 
     .nav-toggler.active .l2 {
-        opacity: 0;  
+        opacity: 0;
     }
 
     .nav-toggler.active .l3 {
@@ -202,7 +202,7 @@
         width: 70%;
     }
 
-    .content-circuits-logiques > img {
+    .content-circuits-logiques>img {
         width: 100%;
     }
 
@@ -218,7 +218,7 @@
         width: 80% !important;
     }
 
-    .text-circuits-logiques .interne-coffre img  {
+    .text-circuits-logiques .interne-coffre img {
         width: 80%;
     }
 
@@ -256,5 +256,90 @@
     code {
         width: 95%;
         overflow: hidden;
+    }
+
+    #script-bdd code,
+    #requetes code {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        color: var(--color-brun);
+    }
+
+    #script-bdd h3,
+    #requetes h3,
+    h3 {
+        font-family: 'cremona';
+        color: var(--color-brun);
+        font-size: 28px;
+        margin-left: 10%;
+        margin-bottom: 60px;
+        margin-top: 80px;
+    }
+
+    #reformulation-besoin h1,
+    #dictionnaire h1,
+    #mcd h1,
+    #mld h1,
+    #mpd h1,
+    #script-bdd h1,
+    #requetes h1 {
+        font-size: 44px;
+        margin-left: 3%;
+        margin-bottom: 30px;
+        margin-top: 70px;
+        font-family: 'qeinsha';
+        font-weight: lighter;
+        color: var(--color-brun);
+    }
+
+    #reformulation-besoin p,
+    #reformulation-besoin ul,
+    #dictionnaire p,
+    #mcd p,
+    #mld p,
+    #mpd p,
+    #script-bdd p,
+    #requetes p {
+        width: 94%;
+        font-size: 16px;
+        color: var(--color-brun);
+        font-family: 'nunito';
+        text-align: justify;
+        margin: 20px auto;
+    }
+
+    #requetes figure {
+        display: flex;
+        flex-flow: column;
+        margin: auto;
+        max-width: 180px;
+    }
+
+    #requetes figcaption {
+        background-color: var(--color-mid);
+        color: var(--color-brun);
+        font: italic smaller sans-serif;
+        padding: 3px;
+        text-align: center;
+    }
+
+    #requetes img {
+        display: flex;
+        margin: 30px auto 0;
+    }
+
+    #dictionnaire img {
+        display: flex;
+        margin: 30px auto 0;
+    }
+
+    #img {
+        margin: 30px auto;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 }
